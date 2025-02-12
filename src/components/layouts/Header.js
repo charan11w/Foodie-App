@@ -25,10 +25,10 @@ function Header({onLogOut}) {
         </Link>
       </ul>
       <input type="input" className="search-bar" placeholder="Search for Food..." />
-      <button className="logout" onClick={handleRedirect}>Log out</button>
       <div className="cart">
         <img src={cartImage} className="cart-image"></img>
       </div>
+      <button className="logout" onClick={handleRedirect}>Log out</button>
     </div>
   );
 }
