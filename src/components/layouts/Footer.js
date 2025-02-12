@@ -3,16 +3,16 @@ function Footer(){
     <div className="footer-bottom">
       <div className="ftr">
         <ul className="footer-ul">
-          <li >About</li>
-          <li>Bloog</li>
-          <li>Jobs</li>
-          <li>Help</li>
-          <li>API</li>
-          <li>Privacy</li>
-          <li>Terms</li>
-          <li>Locations</li>
-          <li>Foodie</li>
-          <li>Threads</li>
+          <li className="li-footer" >About</li>
+          <li className="li-footer">Bloog</li>
+          <li className="li-footer">Jobs</li>
+          <li className="li-footer">Help</li>
+          <li className="li-footer">API</li>
+          <li className="li-footer">Privacy</li>
+          <li className="li-footer">Terms</li>
+          <li className="li-footer">Locations</li>
+          <li className="li-footer">Foodie</li>
+          <li className="li-footer">Threads</li>
         </ul>
       </div>
       <div className="ftr">

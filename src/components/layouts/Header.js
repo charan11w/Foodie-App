@@ -1,9 +1,11 @@
-import { Link,useNavigate } from "react-router-dom";
-function Header() {
+import { Link, useNavigate } from "react-router-dom";
+import cartImage from '../../images/cart.jpg'
+function Header({onLogOut}) {
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
-  function handleRedirect(){
+  function handleRedirect() {
+    onLogOut();
     navigate('/');
   }
   return (
@@ -18,11 +20,15 @@ function Header() {
         <Link to='restaurantList' className="links">
           <li className="li1">RestaurantList</li>
         </Link>
-        <li className="li1">RestauratItems</li>
+        <Link to='restaurantItems' className="links">
+          <li className="li1">RestauratItems</li>
+        </Link>
       </ul>
       <input type="input" className="search-bar" placeholder="Search for Food..." />
       <button className="logout" onClick={handleRedirect}>Log out</button>
-      <div className="cart">Cart</div>
+      <div className="cart">
+        <img src={cartImage} className="cart-image"></img>
+      </div>
     </div>
   );
 }

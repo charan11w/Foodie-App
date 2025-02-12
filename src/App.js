@@ -12,9 +12,12 @@ function App() {
     setIsAuthenticated(true);
   };
 
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  }
   return (
       <BrowserRouter>
-        {isAuthenticated && <Header />}
+        {isAuthenticated && <Header onLogOut={handleLogout} />}
         <Routes>
           <Route path='/' element={isAuthenticated ? <Navigate to='/home' /> : <Login onLogin={handleLogin} />} />
           <Route path='/home' element={<Home />} />
