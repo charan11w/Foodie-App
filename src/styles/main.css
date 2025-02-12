@@ -1,0 +1,193 @@
+*{
+  font-family: arial;
+}
+
+.header-top{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color:#e23e57;
+  padding:10px 0px;
+}
+.ul1{
+  list-style-type: none;
+
+}
+.li1{
+  display: inline-block;
+  margin-left: 10px;
+  margin-right:10px;
+  font-size: 22px;
+}
+.li1:hover{
+  color: white;
+}
+
+.li1:active{
+  color:red;
+}
+.app-name{
+  font-size: 40px;
+  font-weight: bold;
+  margin-left:15px;
+  color: white;
+}
+.search-bar{
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  padding:10px 15px;
+  margin-left:15px;
+  flex:1;
+  max-width: 450px;
+}
+.cart{
+  margin-left:200px;
+}
+
+.links{
+  text-decoration: none;
+  color: black;
+}
+.footer-bottom{
+  background-color: rgb(3, 3, 3);
+  padding:50px 0px;
+}
+
+.foodie-img{
+  width:100px;
+  height:80px;
+}
+
+
+
+.ftr{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.footer-ul{
+  color:rgb(196, 195, 195);
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:0px;
+}
+
+.footer-ul li{
+  margin:0px 10px;
+}
+
+.footer-part{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:30px;
+}
+
+.lan1{
+  margin-right:20px;
+  color:rgb(196, 195, 195);
+}
+.from{
+  color:rgb(196, 195, 195);
+}
+.login-page{
+  background-color:  rgb(3, 3, 3);
+  padding-top:20px;
+}
+.login-form{
+  
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.first,.second{
+ border:1px solid white; 
+ width:340px;
+ height:430px;
+ padding:10px;
+ border-radius: 8px;
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+}
+
+.second{
+  height:100px;
+  margin-top:30px;
+  justify-content: center;
+}
+h1{
+  color: white;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.inputs{
+  background-color: rgb(22, 20, 20);
+  border: 2px solid rgb(42, 42, 42);
+  padding:6px 9px;
+  margin-bottom:15px;
+  color:white;
+}
+.submit-button{
+  width:215px;
+  background-color: #e23e57;
+  color: white;
+  border-radius: 5px;
+  margin-bottom:20px;
+}
+.error{
+  width:215px;
+  font-size: 12px;
+  color: red;
+}
+.or{
+  color: white;
+  display: flex;
+  align-items:center;
+}
+.nothing{
+  color:white;
+  width:100px;
+  margin:10px;
+}
+
+.flog{
+  color:#e23e57;
+  font-weight: bold;
+  margin-bottom:18px;
+}
+
+.fpass{
+  color:white;
+}
+
+.second-one{
+  color:white;
+}
+.second span{
+  color: #e23e57;
+  margin-left:5px;
+}
+
+.get{
+  color:white;
+  margin-top:15px;
+}
+.icons{
+  display:flex;
+  margin-top: 20px;
+}
+.imgs img{
+  width:134px;
+  height:40px;
+  margin-right: 15px;
+}
