@@ -6,6 +6,9 @@ import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
 import RestaurantList from "./components/pages/RestaurantList";
 import './styles/main.css'
+import RestaurantItems from "./components/pages/RestaurantItems";
+import Orders from "./components/pages/Orders";
+import Cart from "./components/pages/Cart";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -23,6 +26,9 @@ function App() {
           <Route path='/' element={isAuthenticated ? <Navigate to='/home' /> : <Login onLogin={handleLogin} />} />
           <Route path='/home' element={<Home />} />
           <Route path='/restaurants' element={<RestaurantList />} />
+          <Route path='/restaurantItems' element={<RestaurantItems />} />
+          <Route path='/orders' element={<Orders />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
         {isAuthenticated && <Footer />}
       </BrowserRouter>

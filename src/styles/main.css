@@ -27,7 +27,6 @@
 .app-name{
   font-size: 40px;
   font-weight: bold;
-  margin-left:15px;
   color: white;
 }
 .search-bar{
@@ -40,7 +39,7 @@
   max-width: 450px;
 }
 .cart{
-  margin-left:160px;
+  margin-left:130px;
   margin-right: 15px;
 }
 
@@ -214,4 +213,8 @@ h1{
 }
 .home-page{
   background-color: #e8e5e5;
+}
+dl, ol, ul {
+  margin-top: 0;
+  margin-bottom:0px;
 }
