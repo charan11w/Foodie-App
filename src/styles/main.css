@@ -270,3 +270,17 @@ dl, ol, ul {
 .col-div3{
   background: #f1ffe9;
 }
+
+/* orders-css */
+.order-container{
+  height:600px;
+  padding-top:90px;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.ordersEmpty{
+  width:500px;
+  height:400px;
+}
