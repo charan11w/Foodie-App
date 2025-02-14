@@ -24,7 +24,7 @@ function Login({ onLogin }) {
     <div className="login-page">
       <div className="login-form">
         <div className="first">
-          <h1>Foodie</h1>
+          <h1 className="login-header">Foodie</h1>
           <input
             type="text"
             className="inputs"

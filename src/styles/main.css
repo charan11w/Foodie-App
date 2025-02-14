@@ -113,7 +113,7 @@
   margin-top:30px;
   justify-content: center;
 }
-h1{
+.login-header{
   color: white;
   text-align: center;
   font-style: italic;
@@ -217,4 +217,56 @@ h1{
 dl, ol, ul {
   margin-top: 0;
   margin-bottom:0px;
+}
+
+.title-home1{
+  text-align: center;
+  font-weight: bold;
+  margin-top:40px;
+}
+
+.title-para{
+  color:#717c77;
+  text-align: center;
+  max-width: 500px;
+}
+
+.home-welcome{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 26px;
+}
+
+.colort{
+  color: #e23e57;
+}
+
+.sl{
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.special-about{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.spl-divs{
+  max-width: 915px;
+}
+
+.col-div,.col-div3{
+  border-radius: 5px;
+    padding: 27px 27px 46px 52px;
+    background: #f4fff5;
+    margin:10px;  
+}
+.col-div2{
+  background: rgba(232, 246, 255, 0.3);
+}
+.col-div3{
+  background: #f1ffe9;
 }
