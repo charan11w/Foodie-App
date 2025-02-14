@@ -20,16 +20,18 @@ function Header({ onLogOut }) {
           <li className="li1">Home</li>
         </Link>
         <Link to='restaurants' className="links">
-          <li className="li1">RestaurantList</li>
+          <li className="li1">Restaurants</li>
         </Link>
         <Link to='restaurantItems' className="links">
-          <li className="li1">RestauratItems</li>
+          <li className="li1">Category</li>
         </Link>
         <Link to='orders' className="links">
           <li className="li1">Orders</li>
         </Link>
+        <Link to='orders' className="links">
+          <li className="li1">About us</li>
+        </Link>
       </ul>
-      <input type="input" className="search-bar" placeholder="Search for Food..." />
       <div className="cart">
         <Link to='cart' className="links">
           <img src={cartImage} className="cart-image"></img>
