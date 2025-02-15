@@ -1,7 +1,8 @@
+import Restaurants from "../common/Restaurants";
 function RestaurantList(){
   return ( 
     <div className="restaurantList">
-      <div className="title">welcome to restaurantList</div>
+      <Restaurants />
     </div>
   );
 }
