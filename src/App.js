@@ -30,6 +30,7 @@ function App() {
           <Route path='/orders' element={<Orders />} />
           <Route path='/cart' element={<Cart />} />
         </Routes>
+        
         {isAuthenticated && <Footer />}
       </BrowserRouter>
 
