@@ -1,6 +1,23 @@
-function Footer(){
-  return(
+function Footer() {
+  return (
     <div className="footer-bottom">
+      <div className=" charan">
+        <div className="sub-class container">
+          <div className="us">
+            <div className="sub-title">
+              Subscribe us
+            </div>
+            <div className="sub-title2">
+              Subscribe us for latest offer and deals
+            </div>
+          </div>
+          <div className="sub-input">
+            <input type="email" placeholder="Email" className="s-email" />
+            <button type="submit" className="email-submit">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div className="ftr-cont">
       <div className="ftr">
         <ul className="footer-ul">
           <li className="li-footer" >About</li>
@@ -29,8 +46,9 @@ function Footer(){
           @ 2025 Foodie from Charan
         </div>
       </div>
+      </div>
     </div>
-    
+
   );
 }
 

@@ -38,20 +38,13 @@
   text-decoration: none;
   color: black;
 }
-.footer-bottom{
-  background-color: rgb(3, 3, 3);
-  padding:50px 0px;
-}
+
 
 .foodie-img{
   width:100px;
   height:80px;
 }
-.ftr{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .footer-ul{
   color:rgb(196, 195, 195);
   list-style-type: none;
@@ -305,4 +298,65 @@ dl, ol, ul {
 .ordersEmpty{
   width:500px;
   height:400px;
+}
+
+/* footer css */
+
+.charan{
+  background-color: rgba(3, 157, 85, 0.05);
+}
+.sub-class{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:35px;
+}
+.us{
+  display: flex;
+  flex-direction: column;
+}
+.sub-title{
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: green;
+}
+.sub-title2{
+  color:grey
+}
+.ftr{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-top:50px; */
+}
+.ftr-cont{
+  padding:50px 0px;
+  background-color: rgb(3, 3, 3);
+}
+.sub-input{
+  margin-left:150px;
+}
+.s-email{
+  padding:5px 8px;
+  border:none;
+  width: 400px;
+  width:364px;
+  height:48px;
+  margin:0px 12px;
+  font-size: 15px;
+  font-family: arial;
+  font-weight: bold;
+  cursor:text;
+}
+
+.email-submit{
+  border:none;
+  background-color: green;
+  color:white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  padding:8px 15px;
+  
 }
