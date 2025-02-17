@@ -357,6 +357,23 @@ dl, ol, ul {
   font-weight: bold;
   font-size: 18px;
   border-radius: 5px;
-  padding:8px 15px;
-  
+  padding:1.9rem;
+}
+
+/* Restaurant page */
+.total-respage{
+  background-color: #e7e7e8;
+
+}
+.restaurant-page{
+  margin-top:10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.nani{
+  display: inline-block;
+}
+.popular-res{
+  padding:10px;
 }
