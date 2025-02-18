@@ -11,17 +11,23 @@ import Orders from "./components/pages/Orders";
 import Cart from "./components/pages/Cart";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [activeNav, setActiveNav] = useState(null)
 
   const handleLogin = () => {
     setIsAuthenticated(true);
+    setActiveNav(0)
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
+    setActiveNav(null)
+  }
+  const handleNav = (index) => {
+    setActiveNav(index)
   }
   return (
       <BrowserRouter>
-        {isAuthenticated && <Header onLogOut={handleLogout} />}
+        {isAuthenticated && <Header onLogOut={handleLogout} setNav={handleNav} active={activeNav}/>}
         <Routes>
           <Route path='/' element={isAuthenticated ? <Navigate to='/home' /> : <Login onLogin={handleLogin} />} />
           <Route path='/home' element={<Home />} />

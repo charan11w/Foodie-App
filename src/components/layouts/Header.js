@@ -1,26 +1,30 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import cartImage from '../../images/cart.jpg'
-function Header({ onLogOut }) {
+import { useState } from "react";
+function Header({ onLogOut, setNav,active }) {
 
   const navigate = useNavigate();
+  
 
   function handleRedirect() {
     onLogOut();
     navigate('/');
   }
+
+  
   return (
     <div className="header-top">
       <div className="app-name">
-        <Link to='/' className="links">
-          <div className="app-name">Foodie</div>
+        <Link to='/' className="links ">
+          <div className="app-name ">Foodie</div>
         </Link>
       </div>
       <ul className="ul1">
-        <Link to='/' className="links">
-          <li className="li1">Home</li>
+        {/* <Link to='/' className="links">
+          <li className="li1 ">Home</li>
         </Link>
         <Link to='restaurants' className="links">
-          <li className="li1">Restaurants</li>
+          <li className="li1 " >Restaurants</li>
         </Link>
         <Link to='restaurantItems' className="links">
           <li className="li1">Category</li>
@@ -30,7 +34,40 @@ function Header({ onLogOut }) {
         </Link>
         <Link to='orders' className="links">
           <li className="li1">About us</li>
-        </Link>
+        </Link> */}
+        {[{
+        toRoute: '/',
+        content: 'Home'
+      },
+      {
+        toRoute: 'restaurants',
+        content: 'Restaurants'
+      },
+      {
+        toRoute: 'restaurantItems',
+        content: 'Category'
+      },
+      {
+        toRoute: 'orders',
+        content: 'Orders'
+      },
+      {
+        toRoute: 'orders',
+        content: 'About us'
+      }
+      ].map((element, index) => {
+       const  {toRoute , content}=element;
+        return (
+          <>
+            <Link key={index} to={toRoute} className="links">
+              <li  
+              className={`li1 ${active === index? 'activeNav':''}`}
+              onClick={() => {setNav(index)}}
+              >{content}</li>
+            </Link>
+          </>
+        )
+      })}
       </ul>
       <div className="cart">
         <Link to='cart' className="links">

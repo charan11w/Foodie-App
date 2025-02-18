@@ -259,6 +259,13 @@ dl, ol, ul {
   background: #f1ffe9;
 }
 
+/* navbar */
+.activeNav {
+  color: white;
+  border-bottom: 2px solid white;
+  transition: all 0.2s ease-in-out;
+}
+
 /* home-page Css */
 .h-jpg{
   width:60px;
@@ -357,7 +364,7 @@ dl, ol, ul {
   font-weight: bold;
   font-size: 18px;
   border-radius: 5px;
-  padding:1.9rem;
+  padding:10px 15px;
 }
 
 /* Restaurant page */
