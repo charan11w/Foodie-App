@@ -11,6 +11,8 @@ function Header({ onLogOut, setNav,active }) {
     navigate('/');
   }
 
+ 
+
   
   return (
     <div className="header-top">

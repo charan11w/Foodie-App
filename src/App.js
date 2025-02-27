@@ -17,7 +17,6 @@ function App() {
     setIsAuthenticated(true);
     setActiveNav(0)
   };
-
   const handleLogout = () => {
     setIsAuthenticated(false);
     setActiveNav(null)

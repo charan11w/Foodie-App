@@ -373,14 +373,39 @@ dl, ol, ul {
 
 }
 .restaurant-page{
-  margin-top:10px;
   display:flex;
   justify-content: center;
   align-items: center;
 }
-.nani{
-  display: inline-block;
-}
+
 .popular-res{
   padding:10px;
+  max-width:1300px;
+  background-color: white;
+  margin:20px 0px;
+  padding:30px;
+  border-radius: 10px;
+}
+
+.popular{
+  font-weight: bold;
+}
+
+.selection1{
+  border-radius:10px 0px 0px 10px;
+  width:80px;
+}
+.selection3{
+  border-radius:0px 10px 10px 0px;
+  width:80px;
+}
+.selection2{
+  border-left:0px;
+  border-right:0px;
+  width:80px;
+}
+.btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
