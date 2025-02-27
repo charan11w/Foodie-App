@@ -12,7 +12,32 @@ const restaurantList = [{
 const styles = {
   image: {
     width: '258.4px',
-    height: '130px'
+    height: '130px',
+    padding: '10px'
+  },
+  restrnt: {
+    padding: '24px 0px 0px 24px',
+  },
+  finalcord: {
+    padding: '10px'
+  },
+  address: {
+    margin: '0px',
+    fontSize: '0.75rem',
+    fontWeight: '400',
+    lineHeight: '11.8px',
+    fontFamily: "sans-serif",
+    color: 'rgb(147, 162, 174)'
+  },
+  resName: {
+    margin: '0px',
+    fontSize: '14px',
+    fontWeight: '500'
+  }
+  ,
+  totalCard:{
+    display:'flex',
+    flexDirection:'column'
   }
 }
 
@@ -31,12 +56,40 @@ function Restaurants() {
           </div>
           <div className="cord">
             <div className="row">
-              <div className="col-3">
+              <div className="col-3 " style={styles.restrnt}>
+                <div className="final-cord" style={styles.finalcord}>
+                  <img src={restaurantList[0].image} style={styles.image} />
+                  <h3>{restaurantList[0].name}</h3>
+                  <div>{restaurantList[0].address}</div>
+                  <div>{restaurantList[0].delivaryTime}</div>
+                </div>
+              </div>
+              <div className="col-3 " style={styles.restrnt}>
                 <div className="final-cord">
                   <img src={restaurantList[0].image} style={styles.image} />
                   <h3>{restaurantList[0].name}</h3>
                   <div>{restaurantList[0].address}</div>
                   <div>{restaurantList[0].delivaryTime}</div>
+                </div>
+              </div>
+              <div className="col-3 " style={styles.restrnt}>
+                <div className="final-cord">
+                  <img src={restaurantList[0].image} style={styles.image} />
+                  <h3>{restaurantList[0].name}</h3>
+                  <div>{restaurantList[0].address}</div>
+                  <div>{restaurantList[0].delivaryTime}</div>
+                </div>
+              </div>
+              <div className="col-3 " style={styles.restrnt}>
+                <div className="total-card" style={styles.totalCard}>
+                  <div className="final-cord">
+                    <img src={restaurantList[0].image} style={styles.image} />
+                  </div>
+                  <div className="final-cord2">
+                    <div style={styles.resName}>{restaurantList[0].name}</div>
+                    <div style={styles.address}>{restaurantList[0].address}</div>
+                    <div>{restaurantList[0].delivaryTime}</div>
+                  </div>
                 </div>
               </div>
             </div>
