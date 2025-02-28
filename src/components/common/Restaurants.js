@@ -1,105 +1,143 @@
+import { useState } from "react";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 const restaurantList = [{
   name: 'Five Star Chicken',
+  retaurantType:'non-veg',
   rating: 3.8,
   address: "New gudupalli link road, near Babu nagar, Kuppam, Andhra Pradesh 517425",
   delivaryTime: `${20}-${40} min`,
   reviews: 17,
   positiveReview: `${72}%`,
-  image: '../../images/nimage.png'
+  image: '../../images/nimage.png',
+  minimumOrder:100.0
+},
+{
+  name: 'Paradise Pizza',
+  retaurantType:'non-veg',
+  rating: 3.4,
+  address: "RR Road Nethaji road to By pass Link Road, Kuppam, Andhra Pradesh 517425",
+  delivaryTime: `${20}-${40} min`,
+  reviews: 20,
+  positiveReview: 72,
+  image: '../../images/nimage.png',
+  minimumOrder:100.0
+},
+{
+  name: 'New Vasavi hotel',
+  retaurantType:'veg',
+  rating: 2.33,
+  address: "kuppam murugan takes road",
+  delivaryTime: `${20}-${40} min`,
+  reviews: 3,
+  positiveReview: 66.6,
+  image: '../../images/nimage.png',
+  minimumOrder:50.0
+},
+{
+  name: 'CAKE SHOP Sweets & Snacks',
+  retaurantType:'veg',
+  rating: 1,
+  address: "RadhaKrishna road BCN complex kuppam",
+  delivaryTime: `${20}-${40} min`,
+  reviews: 0,
+  positiveReview: 66.9,
+  image: '../../images/nimage.png',
+  minimumOrder:50.0
+},
+{
+  name: 'Gamer Kafe',
+  retaurantType:'veg',
+  rating: 3,
+  address: "P8WR+CWV, Kuppam, Andhra Pradesh 517425, India",
+  delivaryTime: `${20}-${40} min`,
+  reviews: 4,
+  positiveReview: 40.6,
+  image: '../../images/nimage.png',
+  minimumOrder:50.0
+},
+{
+  name: 'New Al Bake Restaurant',
+  retaurantType:'non-veg',
+  rating: 3.35,
+  address: "P8WR+CWV, Kuppam, Andhra Pradesh 517425, India",
+  delivaryTime: `${20}-${45} min`,
+  reviews: 18,
+  positiveReview: 58.3,
+  image: '../../images/nimage.png',
+  minimumOrder:50.0
 }]
 
-
-const styles = {
-  image: {
-    width: '258.4px',
-    height: '130px',
-    padding: '10px'
-  },
-  restrnt: {
-    padding: '24px 0px 0px 24px',
-  },
-  finalcord: {
-    padding: '10px'
-  },
-  address: {
-    margin: '0px',
-    fontSize: '0.75rem',
-    fontWeight: '400',
-    lineHeight: '11.8px',
-    fontFamily: "sans-serif",
-    color: 'rgb(147, 162, 174)'
-  },
-  resName: {
-    margin: '0px',
-    fontSize: '14px',
-    fontWeight: '500'
-  }
-  ,
-  totalCard:{
-    display:'flex',
-    flexDirection:'column'
-  }
-}
-
-
 function Restaurants() {
+  const buttons = ["All", "Veg", "Non-Veg"];
+  const [activeButton, setActiveButton] = useState("All");
+  const [filteredRestaurants, setFilteredRestaurants] = useState(restaurantList);
+
+  const handleFilter = (category) => {
+    setActiveButton(category);
+    if (category === "All") {
+      setFilteredRestaurants(restaurantList);
+    } else {
+      setFilteredRestaurants(restaurantList.filter(res => res.retaurantType === category.toLowerCase()));
+    }
+  };
 
   return (
     <div className="total-respage">
-      <div className="restaurant-page">
-        <div className=" popular-res container">
-          <h3 className="popular">Popular Stores</h3>
-          <div className="btn-container">
-            <button className="selection1">All</button>
-            <button className="selection2">Veg</button>
-            <button className="selection3">Non-Veg</button>
-          </div>
-          <div className="cord">
-            <div className="row">
-              <div className="col-3 " style={styles.restrnt}>
-                <div className="final-cord" style={styles.finalcord}>
-                  <img src={restaurantList[0].image} style={styles.image} />
-                  <h3>{restaurantList[0].name}</h3>
-                  <div>{restaurantList[0].address}</div>
-                  <div>{restaurantList[0].delivaryTime}</div>
-                </div>
-              </div>
-              <div className="col-3 " style={styles.restrnt}>
-                <div className="final-cord">
-                  <img src={restaurantList[0].image} style={styles.image} />
-                  <h3>{restaurantList[0].name}</h3>
-                  <div>{restaurantList[0].address}</div>
-                  <div>{restaurantList[0].delivaryTime}</div>
-                </div>
-              </div>
-              <div className="col-3 " style={styles.restrnt}>
-                <div className="final-cord">
-                  <img src={restaurantList[0].image} style={styles.image} />
-                  <h3>{restaurantList[0].name}</h3>
-                  <div>{restaurantList[0].address}</div>
-                  <div>{restaurantList[0].delivaryTime}</div>
-                </div>
-              </div>
-              <div className="col-3 " style={styles.restrnt}>
-                <div className="total-card" style={styles.totalCard}>
-                  <div className="final-cord">
-                    <img src={restaurantList[0].image} style={styles.image} />
-                  </div>
-                  <div className="final-cord2">
-                    <div style={styles.resName}>{restaurantList[0].name}</div>
-                    <div style={styles.address}>{restaurantList[0].address}</div>
-                    <div>{restaurantList[0].delivaryTime}</div>
-                  </div>
+      <div className="restaurant-page container">
+        <h3 className="popular">Popular Stores</h3>
+        <div className="jersi">
+        <div className="btn-container">
+          {buttons.map((btn) => (
+            <button
+              key={btn}
+              className={activeButton === btn ? "active-button" : "inactive-button"}
+              onClick={() => handleFilter(btn)}
+            >
+              {btn}
+            </button>
+          ))}
+        </div>
+        <div className="row mt-4">
+          {filteredRestaurants.map((restaurant, index) => (
+            <div className="col-md-4 mb-3" key={index}>
+              <div className="card">
+                <img src={restaurant.image} className="card-img-top" alt={restaurant.name} />
+                <div className="card-body">
+                  <h5 className="card-title">{restaurant.name}</h5>
+                  <p className="card-text">{restaurant.address}</p>
+                  <p className="card-text">Rating: {restaurant.rating} ⭐</p>
+                  <p className="card-text">Delivery Time: {restaurant.delivaryTime}</p>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
+        </div>
+        <style jsx>{`
+          .btn-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+          }
+          .active-button {
+            background-color: green;
+            color: white;
+          }
+          .inactive-button {
+            background-color: white;
+            color: black;
+          }
+          .active-button:hover {
+            background-color: darkgreen;
+          }
+          .inactive-button:hover {
+            background-color: grey;
+          }
+        `}</style>
       </div>
     </div>
-
-
-  )
+  );
 }
 
 export default Restaurants;
