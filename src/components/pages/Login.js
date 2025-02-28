@@ -5,11 +5,9 @@ import { useState } from "react";
 
 function Login({ onLogin }) {
   const [username, setUserName] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const captureUser = (e) => setUserName(e.target.value);
-  const capturePassword = (e) => setPassword(e.target.value);
 
   const validateUsername = (input) => {
     const phoneRegex = /^[6-9]\d{9}$/; // Starts with 6-9 and must be 10 digits
@@ -19,23 +17,13 @@ function Login({ onLogin }) {
     return "";
   };
 
-  const validatePassword = (input) => {
-    if (input.length < 7) {
-      return "Password must be at least 7 characters long.";
-    }
-    return "";
-  };
-
   const handleSubmit = () => {
     const usernameError = validateUsername(username);
-    const passwordError = validatePassword(password);
 
-    if (!username || !password) {
-      setError("Sorry! Username and password should not be empty.");
+    if (!username) {
+      setError("Sorry! Username should not be empty.");
     } else if (usernameError) {
       setError(usernameError);
-    } else if (passwordError) {
-      setError(passwordError);
     } else {
       setError(""); // Clear errors if validation passes
       onLogin(); // Call the login function
@@ -54,13 +42,6 @@ function Login({ onLogin }) {
             onChange={captureUser}
             value={username}
           />
-          <input
-            type="password"
-            className="inputs"
-            placeholder="Password"
-            onChange={capturePassword}
-            value={password}
-          />
           <button className="submit-button" onClick={handleSubmit}>
             Log in
           </button>
@@ -71,7 +52,6 @@ function Login({ onLogin }) {
             <div className="nothing"><hr /></div>
           </div>
           <div className="flog">Log in with Email</div>
-          <div className="fpass">Forgotten password?</div>
         </div>
         <div className="second">
           <div className="second-one">
