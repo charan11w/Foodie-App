@@ -1,14 +1,13 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import cartImage from '../../images/cart.jpg'
 import { useState } from "react";
-function Header({ onLogOut, setNav,active }) {
+function Header({  setNav,active }) {
 
   const navigate = useNavigate();
   
 
   function handleRedirect() {
-    onLogOut();
-    navigate('/');
+    navigate('/login');
   }
 
  
@@ -76,7 +75,7 @@ function Header({ onLogOut, setNav,active }) {
           <img src={cartImage} className="cart-image"></img>
         </Link>
       </div>
-      <button className="logout" onClick={handleRedirect}>Log out</button>
+      <button className="logout" onClick={handleRedirect}>Log in</button>
     </div>
   );
 }

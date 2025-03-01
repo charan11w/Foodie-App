@@ -2,10 +2,13 @@ import Footer from "../layouts/Footer";
 import playstore from '../../images/playstore.png';
 import microsoft from '../../images/microsoft.png';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Login({ onLogin }) {
+function Login({onLogin}) {
   const [username, setUserName] = useState('');
   const [error, setError] = useState('');
+
+  const navigate=useNavigate();
 
   const captureUser = (e) => setUserName(e.target.value);
 
@@ -17,7 +20,7 @@ function Login({ onLogin }) {
     return "";
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     const usernameError = validateUsername(username);
 
     if (!username) {
@@ -25,8 +28,10 @@ function Login({ onLogin }) {
     } else if (usernameError) {
       setError(usernameError);
     } else {
-      setError(""); // Clear errors if validation passes
-      onLogin(); // Call the login function
+      setError(""); 
+      // event.target.value='Log out'
+  
+      navigate('/');
     }
   };
 
