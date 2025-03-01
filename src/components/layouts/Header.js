@@ -45,7 +45,7 @@ function Header({  setNav,active }) {
         content: 'Restaurants'
       },
       {
-        toRoute: 'restaurantItems',
+        toRoute: 'category',
         content: 'Category'
       },
       {

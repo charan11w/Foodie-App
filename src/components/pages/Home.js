@@ -11,9 +11,6 @@ function Home(onLogin) {
   function goToRestaurant() {
     navigate('/restaurants')
   }
-
-
-
   return (
 
     <div>

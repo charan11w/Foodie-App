@@ -1,0 +1,49 @@
+.resPage{
+  background-color: rgb(226, 226, 226);
+  height:600px;
+ 
+}
+.mtl{
+  position: relative;
+}
+.resCont{
+  margin-top:20px;
+  position:absolute;
+  background-color: white;
+  left:50px;
+  right:50px;
+  border-radius: 10px;
+  padding:30px;
+}
+
+.store-type{
+  display: flex;
+  justify-content: center;
+  padding:24px 0px 0px 24px;
+}
+
+.veg-btn,.all-btn,.non-btn{
+  width:100px;
+  height:42.2px;
+  border: 1px solid green;
+  background-color: white;
+  font-weight: bold;
+}
+.veg-btn{
+  border-left: 0px;
+  border-right: 0px;
+  
+}
+
+.all-btn{
+  border-radius: 10px 0px 0px 10px;
+}
+
+.non-btn{
+  border-radius:0px 10px 10px 0px;
+}
+
+.activeFood{
+  background-color: green;
+  color: white;
+}

@@ -69,75 +69,10 @@ const restaurantList = [{
 }]
 
 function Restaurants() {
-  const buttons = ["All", "Veg", "Non-Veg"];
-  const [activeButton, setActiveButton] = useState("All");
-  const [filteredRestaurants, setFilteredRestaurants] = useState(restaurantList);
-
-  const handleFilter = (category) => {
-    setActiveButton(category);
-    if (category === "All") {
-      setFilteredRestaurants(restaurantList);
-    } else {
-      setFilteredRestaurants(restaurantList.filter(res => res.retaurantType === category.toLowerCase()));
-    }
-  };
-
-  return (
-    <div className="total-respage">
-      <div className="restaurant-page container">
-        <h3 className="popular">Popular Stores</h3>
-        <div className="jersi">
-        <div className="btn-container">
-          {buttons.map((btn) => (
-            <button
-              key={btn}
-              className={activeButton === btn ? "active-button" : "inactive-button"}
-              onClick={() => handleFilter(btn)}
-            >
-              {btn}
-            </button>
-          ))}
-        </div>
-        <div className="row mt-4">
-          {filteredRestaurants.map((restaurant, index) => (
-            <div className="col-md-4 mb-3" key={index}>
-              <div className="card">
-                <img src={restaurant.image} className="card-img-top" alt={restaurant.name} />
-                <div className="card-body">
-                  <h5 className="card-title">{restaurant.name}</h5>
-                  <p className="card-text">{restaurant.address}</p>
-                  <p className="card-text">Rating: {restaurant.rating} ⭐</p>
-                  <p className="card-text">Delivery Time: {restaurant.delivaryTime}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        </div>
-        <style jsx>{`
-          .btn-container {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-          }
-          .active-button {
-            background-color: green;
-            color: white;
-          }
-          .inactive-button {
-            background-color: white;
-            color: black;
-          }
-          .active-button:hover {
-            background-color: darkgreen;
-          }
-          .inactive-button:hover {
-            background-color: grey;
-          }
-        `}</style>
-      </div>
-    </div>
-  );
+  
+  <div className="res-cont ">
+    hello
+  </div>
 }
 
 export default Restaurants;
