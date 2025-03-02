@@ -7,9 +7,9 @@ function Restaurants() {
 
   // Define food types
   const showTypes = [
-    { type: "all", name: "All" },
-    { type: "veg", name: "Veg" },
-    { type: "non-veg", name: "Non-Veg" },
+    { type: "all", name: "All", class: 'all-btn' },
+    { type: "veg", name: "Veg", class: 'veg-btn' },
+    { type: "non-veg", name: "Non-Veg", class: 'non-btn' },
   ];
 
   // Dummy restaurant data with type (veg / non-veg)
@@ -37,7 +37,7 @@ function Restaurants() {
               {showTypes.map((type, index) => (
                 <button
                   key={index}
-                  className={`${type.type} ${activeFood === type.type ? "activeFood" : ""}`}
+                  className={`${type.type} ${type.class} ${activeFood === type.type ? "activeFood" : ""}`}
                   onClick={() => setActiveFood(type.type)} // Set the active category on click
                 >
                   {type.name}
