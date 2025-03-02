@@ -25,10 +25,14 @@ function Restaurants() {
             <div className="store-type">
               {showTypes.map((type, index) => {
                 return (
+
                   <button
                     key={index}
-                    className={`${type.type} ${activeFood ? 'activeFood' : ''}`}
-                  >{type.name}</button>
+                    className={`${type.type} ${activeFood === index ? 'activeFood' : ''}`}
+                    onClick={() => setActiveFood(index)} // Set activeFood on click
+                  >
+                    {type.name}
+                  </button>
                 )
               })}
             </div>
