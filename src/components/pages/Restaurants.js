@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RestaurantImage from "../../images/nimage.png";
 
 function Restaurants() {
   // Define state for active category
   const [activeFood, setActiveFood] = useState("all");
+  const [filteredRes,setFilteredRes] = useState([]);
 
-  // Define food types
-  const showTypes = [
+
+  const foodType = [
     { type: "all", name: "All", class: 'all-btn' },
     { type: "veg", name: "Veg", class: 'veg-btn' },
     { type: "non-veg", name: "Non-Veg", class: 'non-btn' },
   ];
 
-  // Dummy restaurant data with type (veg / non-veg)
   const restaurants = [
     { id: 1, name: "Green Leaf", type: "veg" },
     { id: 2, name: "BBQ Nation", type: "non-veg" },
@@ -23,9 +23,14 @@ function Restaurants() {
   ];
 
   // **Filter restaurants based on selected category**
-  const filteredRestaurants = restaurants.filter((restaurant) =>
-    activeFood === "all" ? true : restaurant.type === activeFood
-  );
+  useEffect(() => {
+
+    const filteredRestaurants = restaurants.filter((restaurant) =>
+      activeFood === "all" ? true : restaurant.type === activeFood
+    );
+    setFilteredRes(filteredRestaurants);
+    console.log('filtereds',filteredRes,restaurants)
+  }, [activeFood])
 
   return (
     <div className="resPage">
@@ -34,20 +39,20 @@ function Restaurants() {
           <h3>Popular Restaurants</h3>
           <div className="res-type">
             <div className="store-type">
-              {showTypes.map((type, index) => (
+              {foodType.map((food, index) => (
                 <button
                   key={index}
-                  className={`${type.type} ${type.class} ${activeFood === type.type ? "activeFood" : ""}`}
-                  onClick={() => setActiveFood(type.type)} // Set the active category on click
+                  className={`${food.class} ${activeFood === food.type ? "activeFood" : ""}`}
+                  onClick={() => setActiveFood(food.type)} 
                 >
-                  {type.name}
+                  {food.name}
                 </button>
               ))}
             </div>
 
             {/* Display Filtered Restaurants */}
             <div className="types-R row">
-              {filteredRestaurants.map((restaurant) => (
+              {filteredRes.map((restaurant) => (
                 <div className="eatPlace col-3" key={restaurant.id}>
                   <div className="center-div">
                     <div className="img-cont">
