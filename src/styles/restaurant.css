@@ -154,3 +154,11 @@
   }
 }
 
+
+.center-div{
+  transition: box-shadow 0.7s;
+}
+.center-div:hover{
+  box-shadow: 0px 0px 5px 0.5px rgb(0,0,0);
+  cursor: pointer;
+}

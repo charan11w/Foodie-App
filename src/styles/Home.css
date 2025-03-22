@@ -1,0 +1,11 @@
+.visit-btn{
+  background-color: #e23e57;
+  color: white;
+  font:bold 18px arial;
+  padding:5px 10px;
+  margin:10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px rgb(0,0,0);
+  cursor: pointer;
+
+}

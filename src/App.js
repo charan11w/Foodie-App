@@ -8,6 +8,7 @@ import Restaurants from "./components/pages/Restaurants";
 import Category from './components/pages/Category'
 import Orders from "./components/pages/Orders";
 import Cart from "./components/pages/Cart";
+import {SelectedRes} from  './components/pages/SelectedRes'
 function App() {
   
   const [isAuthenticated,setIsAuthenticated] =useState(true)
@@ -34,6 +35,8 @@ function App() {
           <Route path='restaurants' element={<Restaurants />} />
           <Route path='category' element={<Category />} />
           <Route path='orders' element={<Orders />} />
+          <Route path='selectedRestaurant' element={<SelectedRes />} />
+          <Route path='restaurantItems' element={<Orders />} />
           <Route path='cart' element={<Cart />} />
         </Routes>
         

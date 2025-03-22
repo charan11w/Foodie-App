@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux"; 
 import RestaurantImage from "../../images/nimage.png";
+import { useNavigate } from "react-router-dom";
+import { signIn } from "../../Redux-toolkit/Reducers/LoginFormSlice"
 
 function Restaurants() {
-  // Define state for active category
+  const result=useSelector((globalState) => globalState)
+  const navigate=useNavigate();
+  const dispatch=useDispatch()
   const [activeFood, setActiveFood] = useState("all");
   const [filteredRes,setFilteredRes] = useState([]);
 
@@ -14,12 +19,12 @@ function Restaurants() {
   ];
 
   const restaurants = [
-    { id: 1, name: "Green Leaf", type: "veg" },
-    { id: 2, name: "BBQ Nation", type: "non-veg" },
-    { id: 3, name: "Veg Delight", type: "veg" },
-    { id: 4, name: "Meat Lovers", type: "non-veg" },
-    { id: 5, name: "Pure Veg Heaven", type: "veg" },
-    { id: 6, name: "Grill House", type: "non-veg" },
+    { id: crypto.randomUUID(), name: "Green Leaf", type: "veg" },
+    { id: crypto.randomUUID(), name: "BBQ Nation", type: "non-veg" },
+    { id: crypto.randomUUID(), name: "Veg Delight", type: "veg" },
+    { id: crypto.randomUUID(), name: "Meat Lovers", type: "non-veg" },
+    { id: crypto.randomUUID(), name: "Pure Veg Heaven", type: "veg" },
+    { id: crypto.randomUUID(), name: "Grill House", type: "non-veg" },
   ];
 
   // **Filter restaurants based on selected category**
@@ -31,6 +36,12 @@ function Restaurants() {
     setFilteredRes(filteredRestaurants);
     console.log('filtereds',filteredRes,restaurants)
   }, [activeFood])
+
+  const openRestaurant=(restaurant) => {
+    dispatch(signIn(restaurant))
+    console.log("clicked",restaurant.name)
+    navigate('/selectedRestaurant')
+  }
 
   return (
     <div className="resPage">
@@ -54,7 +65,7 @@ function Restaurants() {
             <div className="types-R row">
               {filteredRes.map((restaurant) => (
                 <div className="eatPlace col-3" key={restaurant.id}>
-                  <div className="center-div">
+                  <div className="center-div" onClick={() => openRestaurant(restaurant)}>
                     <div className="img-cont">
                       <img src={RestaurantImage} className="image-res" alt="Restaurant" />
                     </div>
