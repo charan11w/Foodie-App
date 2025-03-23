@@ -5,6 +5,7 @@ import './styles/restaurant.css'
 import App from './App';
 import './styles/main.css'
 import './styles/SelectedRes.css'
+import './styles/Loading.css'
 
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
