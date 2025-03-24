@@ -23,6 +23,7 @@ function Restaurants1() {
   
   useEffect( () => {
     dispatch(fetchRestaurant())
+    dispatch(setActiveFood('all'))
   } 
   ,[dispatch])
 
