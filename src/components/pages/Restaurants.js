@@ -4,14 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { signIn } from "../../Redux-toolkit/Reducers/LoginFormSlice"
 import Loading from "../common/Loading";
 import Restaurants from "../common/Restaurants";
-import { fetchRestaurant, setActiveFood } from "../../Redux-toolkit/Reducers/RestaurantSlice";
+import { fetchRestaurant, setActiveFood ,restaurantsStatus} from "../../Redux-toolkit/Reducers/RestaurantSlice";
 
 function Restaurants1() {
 
   const {activeFood} = useSelector(globalState => globalState.restaurants)
-  const {status,error,restaurants}=useSelector(globalState => globalState.restaurants)
-  console.log(restaurants.restaurants,'got')
+  const {status,error,filteredRestaurants}=useSelector(globalState => globalState.restaurants)
+  console.log(filteredRestaurants,'got')
   const dispatch=useDispatch();
+  const status1=useSelector(restaurantsStatus)
+  console.log(status1)
 
   const foodType = [
     { type: "all", name: "All", class: 'all-btn' },
@@ -42,7 +44,7 @@ function Restaurants1() {
                 </button>
               ))}
             </div>     
-            {status === 'loading' ? <Loading /> : <Restaurants restaurants={restaurants.restaurants}/>}
+            {status === 'loading' ? <Loading /> : <Restaurants restaurants={filteredRestaurants}/>}
 
           </div>
         </div>

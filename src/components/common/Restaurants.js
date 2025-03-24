@@ -5,7 +5,6 @@ import { selectAllRestaurants } from "../../Redux-toolkit/Reducers/RestaurantSli
 
 
 function Restaurants({restaurants}){
-  console.log(restaurants,"restaurants")
   return (
      <div className="types-R row">
     {restaurants.map((restaurant) => (
@@ -16,10 +15,10 @@ function Restaurants({restaurants}){
           </div>
           <div className="detail-res">
             <div className="res-name">{restaurant.name}</div>
-            <div className="star-btn">5.1</div>
+            <div className="star-btn">{restaurant.ratings}</div>
             <div className="res-details">
-              <p className="adrs-res">palace road rs pet kuppam</p>
-              <p className="delivery-time">20 - 30 min</p>
+              <p className="adrs-res">{restaurant.address}</p>
+              <p className="delivery-time">{restaurant.deliveryTime}</p>
             </div>
           </div>
         </div>

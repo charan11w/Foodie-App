@@ -32,6 +32,14 @@ export const RestaurantSlice = createSlice({
   reducers: {
     setActiveFood:(state,action) => {
       state.activeFood=action.payload
+
+      if(state.activeFood === 'all'){
+        state.filteredRestaurants=state.restaurants
+      }else{
+        state.filteredRestaurants = state.restaurants.filter( restaurant => 
+          restaurant.restaurantType.toLowerCase() === state.activeFood.toLowerCase()
+        )
+      }
     }
   },
   extraReducers:(builder) => {
@@ -41,7 +49,13 @@ export const RestaurantSlice = createSlice({
     })
     .addCase(fetchRestaurant.fulfilled,(state,action) => {
       state.status='succeeded'
-      state.restaurants=action.payload
+      state.restaurants=action.payload.restaurants.map((restaurant) => (
+        {
+          ...restaurant,
+          id:crypto.randomUUID()
+        }
+      ))
+      state.filteredRestaurants=state.restaurants
     })
     .addCase(fetchRestaurant.rejected,(state,action) => {
       state.status='failed'
@@ -50,8 +64,8 @@ export const RestaurantSlice = createSlice({
   }
 })
 
-export const selectAllRestaurants= state => state.restaurants;
-export const restaurantsStatus=state => state.status
+export const filteredRestaurants=state => state.restaurants.filteredRestaurants
+export const restaurantsStatus=state => state.restaurants.status
 export const restaurantsError=state => state.error
 
 export const {setActiveFood}=RestaurantSlice.actions;
