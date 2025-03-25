@@ -1,17 +1,17 @@
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import noImage from '../../images/nimage.png'
+import {selectedRestaurant } from "../../Redux-toolkit/Reducers/RestaurantSlice"
 
 export const SelectedRes=() => {
-  const navigate=useNavigate();
-  const {name}=useSelector((globaldata) => globaldata.login.restaurant)
-  console.log(name)
+
+  const restaurant =useSelector(selectedRestaurant)
+  console.log(restaurant)
   return(
     <div className="selected"> 
       <div className=" container first-one">
         <div className="row mainRes">
           <div className="detailes col-6">
-            <div className="selectedName">{name}</div>
+            <div className="selectedName">{}</div>
           </div>
           <div className="imagi col-6">
             <img src={noImage} className="resImage"/>
@@ -21,5 +21,4 @@ export const SelectedRes=() => {
     </div>
   )
 }
-console.log("ee")
 

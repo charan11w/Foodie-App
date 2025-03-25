@@ -1,15 +1,22 @@
-import { useState } from "react";
 import RestaurantImage from "../../images/nimage.png";
-import { useSelector } from "react-redux";
-import { selectAllRestaurants } from "../../Redux-toolkit/Reducers/RestaurantSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAllRestaurants, setRestaurant } from "../../Redux-toolkit/Reducers/RestaurantSlice";
+import { useNavigate } from "react-router-dom";
 
 
 function Restaurants({restaurants}){
+  const navigate=useNavigate();
+  const dispatch=useDispatch();
+
+  const openRestaurant=(restaurant) => {
+    dispatch(setRestaurant(restaurant))
+    navigate('/selectedRestaurant');
+  }
   return (
      <div className="types-R row">
     {restaurants.map((restaurant) => (
       <div className="eatPlace col-3" key={restaurant.id}>
-        <div className="center-div" >
+        <div className="center-div" onClick={() => openRestaurant(restaurant)}>
           <div className="img-cont">
             <img src={RestaurantImage} className="image-res" alt="Restaurant" />
           </div>

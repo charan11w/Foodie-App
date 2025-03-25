@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-import React from 'react'
-
 
 const RES_API='https://238254d4-e40a-4d70-baf6-3690771894a0.mock.pstmn.io'
 
@@ -23,7 +21,8 @@ const initialState={
   status:'loading',
   error:null,
   activeFood:'all',
-  filteredRestaurants:[]
+  filteredRestaurants:[],
+  selectedRestaurant:{name:"charan"}
 }
 
 export const RestaurantSlice = createSlice({
@@ -40,6 +39,9 @@ export const RestaurantSlice = createSlice({
           restaurant.restaurantType.toLowerCase() === state.activeFood.toLowerCase()
         )
       }
+    },
+    setRestaurant:(state,action) => {
+      state.selectedRestaurant=action.payload
     }
   },
   extraReducers:(builder) => {
@@ -64,10 +66,12 @@ export const RestaurantSlice = createSlice({
   }
 })
 
-export const filteredRestaurants=state => state.restaurants.filteredRestaurants
-export const restaurantsStatus=state => state.restaurants.status
-export const restaurantsError=state => state.error
+export const filteredRestaurants = (state) => state.current_restaurant.filteredRestaurants;
+export const selectedRestaurant = (state) => state.current_restaurant.selectedRestaurant;
+export const restaurantsStatus = (state) => state.current_restaurant.status;
+export const restaurantsError = (state) => state.current_restaurant.error;
 
-export const {setActiveFood}=RestaurantSlice.actions;
+
+export const {setActiveFood,setRestaurant}=RestaurantSlice.actions;
 
 export default RestaurantSlice.reducer

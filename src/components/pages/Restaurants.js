@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"; 
-import { useNavigate } from "react-router-dom";
-import { signIn } from "../../Redux-toolkit/Reducers/LoginFormSlice"
 import Loading from "../common/Loading";
 import Restaurants from "../common/Restaurants";
 import { fetchRestaurant, setActiveFood ,restaurantsStatus} from "../../Redux-toolkit/Reducers/RestaurantSlice";
@@ -45,8 +43,7 @@ function Restaurants1() {
                 </button>
               ))}
             </div>     
-            {status === 'loading' ? <Loading /> : <Restaurants restaurants={filteredRestaurants}/>}
-
+            {status === 'loading' ? <Loading /> : status === 'failed'?<h2>{error} to load data</h2>:<Restaurants restaurants={filteredRestaurants}/>}
           </div>
         </div>
       </div>

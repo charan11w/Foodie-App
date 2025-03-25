@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home'
@@ -29,7 +29,6 @@ function App() {
       <BrowserRouter>
         {isAuthenticated && <Header onLogOut={handleLogout} setNav={handleNav} active={activeNav}/>}
         <Routes>
-            {/* <Route path='/' element={isAuthenticated ? <Navigate to='/home' /> : <Login onLogin={handleLogin} />} /> */}
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login onLogin={handleLogin}/>} />
           <Route path='restaurants' element={<Restaurants />} />
