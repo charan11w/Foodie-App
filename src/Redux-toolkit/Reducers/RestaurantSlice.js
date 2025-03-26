@@ -16,7 +16,7 @@ export const fetchRestaurant=createAsyncThunk(
   }
 )
 
-const initialState={
+export const initialState={
   restaurants:[],
   status:'loading',
   error:null,
@@ -66,10 +66,11 @@ export const RestaurantSlice = createSlice({
   }
 })
 
-export const filteredRestaurants = (state) => state.current_restaurant.filteredRestaurants;
-export const selectedRestaurant = (state) => state.current_restaurant.selectedRestaurant;
-export const restaurantsStatus = (state) => state.current_restaurant.status;
-export const restaurantsError = (state) => state.current_restaurant.error;
+export const filteredRestaurants = (state) => state.restaurants.filteredRestaurants;
+export const selectedRestaurant = (state) => state.restaurants.selectedRestaurant;
+export const restaurantsStatus = (state) => state.restaurants.status;
+export const restaurantsError = (state) => state.restaurants.error;
+
 
 
 export const {setActiveFood,setRestaurant}=RestaurantSlice.actions;

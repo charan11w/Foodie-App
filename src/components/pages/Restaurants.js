@@ -2,16 +2,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"; 
 import Loading from "../common/Loading";
 import Restaurants from "../common/Restaurants";
-import { fetchRestaurant, setActiveFood ,restaurantsStatus} from "../../Redux-toolkit/Reducers/RestaurantSlice";
+import { fetchRestaurant, setActiveFood ,restaurantsStatus, filteredRestaurants} from "../../Redux-toolkit/Reducers/RestaurantSlice";
 
 function Restaurants1() {
 
-  const {activeFood} = useSelector(globalState => globalState.restaurants)
-  const {status,error,filteredRestaurants}=useSelector(globalState => globalState.restaurants)
-  console.log(filteredRestaurants,'got')
-  const dispatch=useDispatch();
-  const status1=useSelector(restaurantsStatus)
-  console.log(status1)
+  const dispatch=useDispatch()
+  const {activeFood} = useSelector(state => state.restaurants)
+  console.log(activeFood)
+  const restaurants=useSelector(filteredRestaurants)
+  const status=useSelector(restaurantsStatus)
+  const error=useSelector(restaurantsStatus)
 
   const foodType = [
     { type: "all", name: "All", class: 'all-btn' },
@@ -43,7 +43,7 @@ function Restaurants1() {
                 </button>
               ))}
             </div>     
-            {status === 'loading' ? <Loading /> : status === 'failed'?<h2>{error} to load data</h2>:<Restaurants restaurants={filteredRestaurants}/>}
+            {status === 'loading' ? <Loading /> : status === 'failed'?<h2>{error} to load data</h2>:<Restaurants restaurants={restaurants}/>}
           </div>
         </div>
       </div>

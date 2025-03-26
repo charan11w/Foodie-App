@@ -6,22 +6,70 @@
   padding:20px;
 }
 .detailes{
-  background-color: green;
+  background-color: rgb(240, 102, 102);
   border-radius: 5px 0px 0px 5px ;
-  padding:10px;
+  padding:20px;
 }
 .imagi{
   background-color: grey;
   border-radius: 0px 7px 7px 0px;
   padding:0px;
+  height: 250px;
 }
 .resImage{
   width:100%;
   height:100%;
   border-radius: 0px 7px 7px 0px;
 }
-.selectedName{
+
+.fork-sm{
+  border: 2px solid white;
+  border-radius: 40px;
+  padding: 3px;
+  margin-right:0.4rem;
+}
+.locationIcon{
   color: white;
-  font: bold 29px arial;
-  text-align: center;
+  margin-right:0.3rem
+}
+.res-location{
+  color: white;
+  font:15px arial;
+  margin-top:0.3rem;
+  margin-left:0.4rem;
+}
+
+.smallImg{
+  width:110px;
+  height:110px;
+  border-radius: 20px;;
+}
+
+.rcb{
+margin-left: -1.5rem;
+}
+.rs-name{
+  font-size: 22px;
+  color: white;
+  font:bold 1.5rem arial;
+}
+.rating{
+  color: white;
+  margin-top:0.6rem;
+  display: flex;
+  align-items: center;
+}
+.rating-span{
+  margin-left:0.5rem;
+}
+.address{
+  color: white;
+  margin-top: 0.7rem;
+}
+.selectedName{
+  margin-bottom: 5rem;
+}
+.remember{
+  display: flex;
+  flex-direction: row;
 }
