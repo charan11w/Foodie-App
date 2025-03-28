@@ -1,6 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import cartImage from '../../images/cart.jpg'
 import { useState } from "react";
+import CustomModal from "../ReusableComponents/CustomModal";
 function Header({ setNav, active }) {
 
   const navigate = useNavigate();
@@ -10,7 +11,9 @@ function Header({ setNav, active }) {
     navigate('/login');
   }
 
-
+  const openModal = () => {
+   
+  }
 
 
   return (
@@ -60,7 +63,7 @@ function Header({ setNav, active }) {
           <img src={cartImage} className="cart-image"></img>
         </Link>
       </div>
-      <button className="logout" onClick={handleRedirect}>Log in</button>
+       <CustomModal nt={false}/>
     </div>
   );
 }
