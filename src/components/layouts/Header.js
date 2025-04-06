@@ -3,20 +3,31 @@ import cartImage from '../../images/cart.jpg'
 import { useState } from "react";
 import CustomModal from "../ReusableComponents/CustomModal";
 import { useDispatch, useSelector } from "react-redux";
-import { setNav } from "../../Redux-toolkit/Reducers/AuthSlice";
+import { logout, setNav } from "../../Redux-toolkit/Reducers/AuthSlice";
+import { Box, Button, Modal } from "@mui/material";
+import LoginForm from "../LoginForm/LoginForm";
 function Header() {
 
   const navigate = useNavigate();
-  const dispatch=useDispatch();
-  const {activeNav}=useSelector(state => state.auth)
-  console.log(activeNav)
+  const dispatch = useDispatch();
+  const { activeNav, isAuthenticated } = useSelector(state => state.auth)
+  const [open, setOpen] = useState(false)
 
-
-  const setNavIdx=(index) => {
+  const setNavIdx = (index) => {
     dispatch(setNav(index))
   }
 
+  const handleLogin = () => {
+    setOpen(pre => !pre)
+  }
 
+  const handleClose = () => {
+    setOpen(pre => !pre)
+  }
+
+  const handleLogOut = () => {
+    dispatch(logout({ isAuthenticated: false }))
+  }
 
   return (
     <div className="header-top">
@@ -65,7 +76,36 @@ function Header() {
           <img src={cartImage} className="cart-image"></img>
         </Link>
       </div>
-       <CustomModal nt={false}/>
+      <div className="charan">
+        {
+          isAuthenticated
+            ?
+            <Button id="login-" onClick={handleLogOut}>Logout</Button>
+            :
+            <Button id="login-" onClick={handleLogin}>Login</Button>
+
+        }
+      </div>
+      <Modal open={open} onClose={handleClose}>
+        <Box
+          sx={{
+            height: '100vh',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            bgcolor: 'rgba(0, 0, 0, 0.5)', // Optional: dimmed background
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            zIndex: 1300, // above everything
+          }}
+        >
+          <LoginForm onClose={handleClose} />
+        </Box>
+
+
+      </Modal>
     </div>
   );
 }

@@ -421,3 +421,11 @@ dl, ol, ul {
   display:flex;
   flex-direction: column;
 }
+
+#login-{
+  background-color: white;
+  color: black;
+}
+.charan{
+  width:100px;
+}
