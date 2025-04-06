@@ -2,18 +2,20 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import cartImage from '../../images/cart.jpg'
 import { useState } from "react";
 import CustomModal from "../ReusableComponents/CustomModal";
-function Header({ setNav, active }) {
+import { useDispatch, useSelector } from "react-redux";
+import { setNav } from "../../Redux-toolkit/Reducers/AuthSlice";
+function Header() {
 
   const navigate = useNavigate();
+  const dispatch=useDispatch();
+  const {activeNav}=useSelector(state => state.auth)
+  console.log(activeNav)
 
 
-  function handleRedirect() {
-    navigate('/login');
+  const setNavIdx=(index) => {
+    dispatch(setNav(index))
   }
 
-  const openModal = () => {
-   
-  }
 
 
   return (
@@ -49,8 +51,8 @@ function Header({ setNav, active }) {
           return (
             <li
               key={index}
-              className={`li1 ${active === index ? 'activeNav' : ''}`}
-              onClick={() => { setNav(index) }}
+              className={`li1 ${activeNav === index ? 'activeNav' : ''}`}
+              onClick={() => { setNavIdx(index) }}
             >
               <Link to={toRoute} className="links">{content}</Link>
             </li>
