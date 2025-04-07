@@ -9,12 +9,13 @@
   background-color: rgb(240, 102, 102);
   border-radius: 5px 0px 0px 5px ;
   padding:20px;
+  padding-bottom: 5px;
 }
 .imagi{
   background-color: grey;
   border-radius: 0px 7px 7px 0px;
   padding:0px;
-  height: 250px;
+  height: 220px;
 }
 .resImage{
   width:100%;
@@ -67,9 +68,16 @@ margin-left: -1.5rem;
   margin-top: 0.7rem;
 }
 .selectedName{
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 .remember{
   display: flex;
   flex-direction: row;
+  color: white;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+.perName{
+  font: bold 20px arial;
 }

@@ -11,6 +11,7 @@ import Cart from "./components/pages/Cart";
 import {SelectedRes} from  './components/pages/SelectedRes'
 import { useDispatch, useSelector } from "react-redux";
 import { setNav } from "./Redux-toolkit/Reducers/AuthSlice";
+import Items from "./components/ReusableComponents/Items";
 function App() {
   
   const dispatch=useDispatch()
@@ -26,6 +27,7 @@ function App() {
         <Header  />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='items' element={<Items />} />
           <Route path='restaurants' element={<Restaurants />} />
           <Route path='category' element={<Category />} />
           <Route path='orders' element={<Orders />} />

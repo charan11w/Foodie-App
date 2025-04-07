@@ -1,0 +1,4 @@
+.all-items{
+  display: flex;
+  flex-direction: row;
+}
