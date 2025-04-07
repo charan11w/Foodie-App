@@ -94,11 +94,11 @@ function Header() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            bgcolor: 'rgba(0, 0, 0, 0.5)', // Optional: dimmed background
+            bgcolor: 'rgba(0, 0, 0, 0.5)',
             position: 'fixed',
             top: 0,
             left: 0,
-            zIndex: 1300, // above everything
+            zIndex: 1300,
           }}
         >
           <LoginForm onClose={handleClose} />

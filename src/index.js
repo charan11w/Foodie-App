@@ -6,6 +6,7 @@ import App from './App';
 import './styles/main.css'
 import './styles/SelectedRes.css'
 import './styles/Loading.css'
+import './global.css'
 
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
