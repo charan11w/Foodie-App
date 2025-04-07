@@ -1,4 +1,86 @@
-.all-items{
+.header-item {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 20px;
+  flex-wrap: wrap;
 }
+
+.left, .right {
+  display: flex;
+  align-items: center;
+  position:relative
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+/* Container holding filters and items */
+.all-items {
+  display: flex;
+  gap: 2rem;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Left Side: Filter Section */
+.filters {
+  flex: 1;
+  min-width: 220px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Individual filter option styling */
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+/* Right Side: Items Section */
+.items {
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start;
+}
+
+/* Each product card */
+.col {
+  flex: 1 1 calc(33.333% - 1rem); /* 3 cards per row with spacing */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments */
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  color: #888;
+  pointer-events:cursor
+}
+
