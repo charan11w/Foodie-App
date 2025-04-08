@@ -5,6 +5,7 @@ import { FiMapPin } from "react-icons/fi";
 import mana from '../../images/mana.png'
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Items from "../ReusableComponents/Items";
 
 
 export const SelectedRes=() => {
@@ -25,11 +26,6 @@ export const SelectedRes=() => {
     }
     return stars;
   };
-
-  const showItems=() => {
-    navigate('/items')
-  }
-
   return (
     <div className="selected">
       <div className="container first-one">
@@ -70,8 +66,8 @@ export const SelectedRes=() => {
           <div className="imagi col-6">
             <img src={noImage} className="resImage" alt="Restaurant" />
           </div>
-          <button onClick={showItems}>show</button>
         </div>
+        <Items />
       </div>
     </div>
   );

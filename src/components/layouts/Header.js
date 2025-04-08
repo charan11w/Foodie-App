@@ -5,24 +5,33 @@ import CustomModal from "../ReusableComponents/CustomModal";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, setNav } from "../../Redux-toolkit/Reducers/AuthSlice";
 import { Box, Button, Modal } from "@mui/material";
-import LoginForm from "../LoginForm/LoginForm";
+import LoginForm from "../Forms/LoginForm";
+import LogoutForm from "../Forms/LogoutForm";
 function Header() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { activeNav, isAuthenticated } = useSelector(state => state.auth)
-  const [open, setOpen] = useState(false)
+  const [models, setModels] = useState({loginOpen:false,logoutOpen:false})
+
+ const {loginOpen,logoutOpen} = models
 
   const setNavIdx = (index) => {
     dispatch(setNav(index))
   }
 
   const handleLogin = () => {
-    setOpen(pre => !pre)
+    setModels(pre =>({
+      ...pre,
+      loginOpen:true
+    }) )
   }
 
   const handleClose = () => {
-    setOpen(pre => !pre)
+    setModels(pre => ({
+      ...pre,
+      loginOpen:false
+    }))
   }
 
   const handleLogOut = () => {
@@ -52,10 +61,6 @@ function Header() {
         {
           toRoute: 'orders',
           content: 'Orders'
-        },
-        {
-          toRoute: 'orders',
-          content: 'About us'
         }
         ].map((element, index) => {
           const { toRoute, content } = element;
@@ -86,7 +91,7 @@ function Header() {
 
         }
       </div>
-      <Modal open={open} onClose={handleClose}>
+      <Modal open={loginOpen} onClose={handleClose}>
         <Box
           sx={{
             height: '100vh',
@@ -101,10 +106,26 @@ function Header() {
             zIndex: 1300,
           }}
         >
-          <LoginForm onClose={handleClose} />
+           <LoginForm onClose={handleClose} />
         </Box>
-
-
+      </Modal>
+      <Modal open={logoutOpen} onClose={handleClose}>
+        <Box
+          sx={{
+            height: '100vh',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            bgcolor: 'rgba(0, 0, 0, 0.5)',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            zIndex: 1300,
+          }}
+        >
+           <LogoutForm onClose={handleClose} />
+        </Box>
       </Modal>
     </div>
   );
