@@ -2,7 +2,7 @@ import { Box, Button, Typography, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../Redux-toolkit/Reducers/AuthSlice';
+import { logout } from '../../redux-slices/AuthSlice';
 
 
 const LogoutForm = ({ onClose }) => {

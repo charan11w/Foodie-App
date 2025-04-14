@@ -2,7 +2,7 @@ import { Box, Button, TextField, Typography, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../Redux-toolkit/Reducers/AuthSlice';
+import { login } from '../../redux-slices/AuthSlice'
 
 const LoginForm = ({ onClose }) => {
   const dispatch = useDispatch();

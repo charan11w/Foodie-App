@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"; 
 import Loading from "../common/Loading";
 import Restaurants from "../common/Restaurants";
-import { fetchRestaurant, setActiveFood ,restaurantsStatus, filteredRestaurants} from "../../Redux-toolkit/Reducers/RestaurantSlice";
+import { fetchRestaurant, setActiveFood ,restaurantsStatus, filteredRestaurants} from "../../redux-slices/RestaurantSlice";
 
 function Restaurants1() {
 

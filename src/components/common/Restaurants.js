@@ -1,6 +1,6 @@
 import RestaurantImage from "../../images/nimage.png";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAllRestaurants, setRestaurant } from "../../Redux-toolkit/Reducers/RestaurantSlice";
+import { selectAllRestaurants, setRestaurant } from "../../redux-slices/RestaurantSlice";
 import { useNavigate } from "react-router-dom";
 
 

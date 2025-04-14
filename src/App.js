@@ -9,7 +9,7 @@ import Orders from "./components/pages/Orders";
 import Cart from "./components/pages/Cart";
 import {SelectedRes} from  './components/pages/SelectedRes'
 import { useDispatch, useSelector } from "react-redux";
-import { setNav } from "./Redux-toolkit/Reducers/AuthSlice";
+import { setNav } from "./redux-slices/AuthSlice";
 import Items from "./components/ReusableComponents/Items";
 function App() {
   

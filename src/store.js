@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import LoginFormReducer from "./Redux-toolkit/Reducers/LoginFormSlice";
-import RestaurantReducer,{fetchRestaurant} from './Redux-toolkit/Reducers/RestaurantSlice'
-import AuthSlice  from "./Redux-toolkit/Reducers/AuthSlice";
+import LoginFormReducer from "./redux-slices/LoginFormSlice";
+import RestaurantReducer,{fetchRestaurant} from './redux-slices/RestaurantSlice'
+import AuthSlice  from "./redux-slices/AuthSlice";
 
 
 export const store = configureStore({

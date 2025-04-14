@@ -3,7 +3,7 @@ import cartImage from '../../images/cart.jpg'
 import { useState } from "react";
 import CustomModal from "../ReusableComponents/CustomModal";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, setNav } from "../../Redux-toolkit/Reducers/AuthSlice";
+import { logout, setNav } from "../../redux-slices/AuthSlice";
 import { Box, Button, Modal } from "@mui/material";
 import LoginForm from "../Forms/LoginForm";
 import LogoutForm from "../Forms/LogoutForm";

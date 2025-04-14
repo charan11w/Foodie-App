@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import noImage from '../../images/nimage.png'
-import {selectedRestaurant } from "../../Redux-toolkit/Reducers/RestaurantSlice"
+import {selectedRestaurant } from "../../redux-slices/RestaurantSlice"
 import { FiMapPin } from "react-icons/fi";
 import mana from '../../images/mana.png'
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
