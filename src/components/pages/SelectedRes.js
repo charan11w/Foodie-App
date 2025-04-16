@@ -6,6 +6,7 @@ import mana from '../../images/mana.png'
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Items from "../ReusableComponents/Items";
+import { useEffect } from "react";
 
 
 export const SelectedRes=() => {
@@ -26,6 +27,7 @@ export const SelectedRes=() => {
     }
     return stars;
   };
+
   return (
     <div className="selected">
       <div className="container first-one">

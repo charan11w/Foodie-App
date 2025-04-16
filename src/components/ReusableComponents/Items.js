@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/items.css'
 import { FaSearch } from 'react-icons/fa';
 import productImage from '../../images/nimage.png'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchItems } from '../../redux-slices/ItemSlice';
 const Items = () => {
 
-  const {selectedRestaurant} =useSelector(state => state.restaurants)
-  const {name} = selectedRestaurant
+  
+  const dispatch=useDispatch();
+  const { selectedRestaurant } = useSelector(state => state.restaurants)
+
+  const { filteredItems,items } = useSelector(state => state.items)
+  const { name } = selectedRestaurant
+  const [foodItems, setFoodItems] = useState([]);
+
+  useEffect(() => {
+    setFoodItems(filteredItems)
+    dispatch(fetchItems())
+  }, [filteredItems])
+  console.log(filteredItems)
+
   return (
     <div className='container items-cont'>
       <div>
@@ -54,78 +67,17 @@ const Items = () => {
           </div>
 
           <div className='products'>
-            <div className='product'>
-              <img src={productImage} className='product-image' />
-              <div className='product-details'>
-                <div className='restaurantName'>{name}</div>
-                <div className='product-name'>Crunch masala byryani </div>
-                <div className='product-price'>777.00&#8377;</div>
-              </div>
-            </div>
-            <div className='product'>
-              <img src={productImage} className='product-image' />
-              <div className='product-details'>
-                <div className='restaurantName'>{name}</div>
-                <div className='product-name'>Crunch masala byryani </div>
-                <div className='product-price'>777.00&#8377;</div>
-              </div>
-            </div>
-            <div className='product'>
-              <img src={productImage} className='product-image' />
-              <div className='product-details'>
-                <div className='restaurantName'>{name}</div>
-                <div className='product-name'>Crunch masala byryani </div>
-                <div className='product-price'>777.00&#8377;</div>
-              </div>
-            </div>
-            <div className='product'>
-              <img src={productImage} className='product-image' />
-              <div className='product-details'>
-                <div className='restaurantName'>{name}</div>
-                <div className='product-name'>Crunch masala byryani </div>
-                <div className='product-price'>777.00&#8377;</div>
-              </div>
-            </div>
-            <div className='product'>
-              <img src={productImage} className='product-image' />
-              <div className='product-details'>
-                <div className='restaurantName'>{name}</div>
-                <div className='product-name'>Crunch masala byryani </div>
-                <div className='product-price'>777.00&#8377;</div>
-              </div>
-            </div>
-            <div className='product'>
-              <img src={productImage} className='product-image' />
-              <div className='product-details'>
-                <div className='restaurantName'>{name}</div>
-                <div className='product-name'>Crunch masala byryani </div>
-                <div className='product-price'>777.00&#8377;</div>
-              </div>
-            </div>
-            <div className='product'>
-              <img src={productImage} className='product-image' />
-              <div className='product-details'>
-                <div className='restaurantName'>{name}</div>
-                <div className='product-name'>Crunch masala byryani </div>
-                <div className='product-price'>777.00&#8377;</div>
-              </div>
-            </div>
-            <div className='product'>
-              <img src={productImage} className='product-image' />
-              <div className='product-details'>
-                <div className='restaurantName'>{name}</div>
-                <div className='product-name'>Crunch masala byryani </div>
-                <div className='product-price'>777.00&#8377;</div>
-              </div>
-            </div>
-            <div className='product'>
-              <img src={productImage} className='product-image' />
-              <div className='product-details'>
-                <div className='restaurantName'>{name}</div>
-                <div className='product-name'>Crunch masala byryani </div>
-                <div className='product-price'>777.00&#8377;</div>
-              </div>
-            </div>
+
+            {foodItems.map((item) => (
+                <div className='product'>
+                  <img src={productImage} className='product-image' />
+                  <div className='product-details'>
+                    <div className='restaurantName'>{name}</div>
+                    <div className='product-name'>{item.name} </div>
+                    <div className='product-price'>{item.price}.00&#8377;</div>
+                  </div>
+                </div>
+            ))}
           </div>
         </div>
 

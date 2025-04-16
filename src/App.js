@@ -4,7 +4,6 @@ import Home from './components/pages/Home'
 import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
 import Restaurants from "./components/pages/Restaurants";
-import Category from './components/pages/Category'
 import Orders from "./components/pages/Orders";
 import Cart from "./components/pages/Cart";
 import {SelectedRes} from  './components/pages/SelectedRes'
@@ -28,7 +27,6 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='items' element={<Items />} />
           <Route path='restaurants' element={<Restaurants />} />
-          <Route path='category' element={<Category />} />
           <Route path='orders' element={<Orders />} />
           <Route path='selectedRestaurant' element={<SelectedRes />} />
           <Route path='restaurantItems' element={<Orders />} />
