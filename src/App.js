@@ -1,25 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from 'react';
 import Home from './components/pages/Home'
 import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
 import Restaurants from "./components/pages/Restaurants";
 import Orders from "./components/pages/Orders";
-import Cart from "./components/pages/Cart";
 import {SelectedRes} from  './components/pages/SelectedRes'
-import { useDispatch, useSelector } from "react-redux";
-import { setNav } from "./redux-slices/AuthSlice";
 import Items from "./components/ReusableComponents/Items";
-function App() {
-  
-  const dispatch=useDispatch()
 
-  useEffect(() => {
-    dispatch(setNav(0))
-  },[])
 
-  
-  
+const App=() =>{  
   return (
       <BrowserRouter>
         <Header  />
@@ -30,7 +19,6 @@ function App() {
           <Route path='orders' element={<Orders />} />
           <Route path='selectedRestaurant' element={<SelectedRes />} />
           <Route path='restaurantItems' element={<Orders />} />
-          <Route path='cart' element={<Cart />} />
         </Routes>
         
         <Footer />

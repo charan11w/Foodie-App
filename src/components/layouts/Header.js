@@ -1,26 +1,38 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import cartImage from '../../images/cart.jpg'
-import { useState } from "react";
-import CustomModal from "../ReusableComponents/CustomModal";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, setNav } from "../../redux-slices/AuthSlice";
+import { logout } from "../../redux-slices/AuthSlice";
 import { Box, Button, Modal } from "@mui/material";
 import LoginForm from "../Forms/LoginForm";
 import LogoutForm from "../Forms/LogoutForm";
 
 import '../../styles/Header.css'
+import CheckoutModal from "../ReusableComponents/CheckoutModal";
 function Header() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { activeNav, isAuthenticated } = useSelector(state => state.auth)
+  const location = useLocation();
+
+  const { isAuthenticated } = useSelector(state => state.auth)
   const [models, setModels] = useState({ loginOpen: false, logoutOpen: false })
 
   const { loginOpen, logoutOpen } = models
 
-  const setNavIdx = (index) => {
-    dispatch(setNav(index))
-  }
+
+  const pathToIndex = {
+    '/': 0,
+    '/restaurants': 1,
+    '/orders': 2
+  };
+
+  const routes = [
+    { to: '/', label: 'Home', match: ['/', '/home'] },
+    { to: '/restaurants', label: 'Restaurants', match: ['/restaurants', '/selectedRestaurant'] },
+    { to: '/orders', label: 'Orders', match: ['/orders', '/restaurantItems'] }
+  ];
+
 
   const handleLogin = () => {
     setModels(pre => ({
@@ -30,13 +42,25 @@ function Header() {
   }
 
   const handleClose = () => {
+    setModels((pre) => ({
+      ...pre,
+      loginOpen: false,  
+      logoutOpen: false, 
+    }));
+  };
+
+  const handleLogOut = () => {
     setModels(pre => ({
       ...pre,
-      loginOpen: false
+      logoutOpen:true
     }))
   }
 
-  const handleLogOut = () => {
+  const handleLogOutClose= () => {
+    setModels(pre => ({
+      ...pre,
+      logoutOpen:true
+    }))
     dispatch(logout({ isAuthenticated: false }))
   }
   return (
@@ -49,32 +73,15 @@ function Header() {
         </div>
       </div>
       <div className="header-center">
-        <ul className="ul1 ">
-          {[{
-            toRoute: '/',
-            content: 'Home'
-          },
-          {
-            toRoute: 'restaurants',
-            content: 'Restaurants'
-          },
-          {
-            toRoute: 'orders',
-            content: 'Orders'
-          }
-          ].map((element, index) => {
-            const { toRoute, content } = element;
-            return (
-              <li
-                key={index}
-                className={`li1 ${activeNav === index ? 'activeNav' : ''}`}
-                onClick={() => { setNavIdx(index) }}
-              >
-                <Link to={toRoute} className="links">{content}</Link>
-              </li>
-
-            )
-          })}
+        <ul className="ul1">
+          {routes.map(({ to, label, match }, idx) => (
+            <li
+              key={idx}
+              className={`li1 ${match.includes(location.pathname) ? 'activeNav' : ''}`}
+            >
+              <Link to={to} className="links">{label}</Link>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="header-right">
@@ -112,13 +119,12 @@ function Header() {
               zIndex: 1300,
             }}
           >
-            <LogoutForm onClose={handleClose} />
+            <LogoutForm onClose={handleLogOutClose} closeAll={handleClose} />
           </Box>
         </Modal>
         <div className="cart">
-          <Link to='cart' className="links" key={1}>
             <img src={cartImage} className="cart-image"></img>
-          </Link>
+            <CheckoutModal open={true}/>
         </div>
         <div className="log-btn">
           {

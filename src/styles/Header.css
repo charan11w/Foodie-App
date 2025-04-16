@@ -1,19 +1,19 @@
-.header-top{
-  display:flex;
+.header-top {
+  display: flex;
   align-items: center;
-  background-color:#e23e57;
-  padding:10px 0px;
+  background-color: #e23e57;
+  padding: 10px 0px;
   flex-direction: row;
-  padding:0px 60px 0px 60px
+  padding: 0px 60px;
 }
 
-.header-center{
+.header-center {
   display: flex;
   justify-content: center;
   flex: 1;
 }
 
-.header-center .ul1{
+.header-center .ul1 {
   display: flex;
   flex-direction: row;
   max-width: 600px;
@@ -21,39 +21,61 @@
   align-items: center;
   justify-content: center;
 }
-.ul1{
+
+.ul1 {
   list-style-type: none;
 }
-.li1{
+
+.li1 {
   font-size: 22px;
 }
-.li1:hover{
+
+.li1:hover {
   color: white;
 }
 
-.li1:active{
-  color:red;
+.li1:active {
+  color: red;
 }
-.app-name{
+
+.app-name {
   font-size: 40px;
   font-weight: bold;
   color: white;
 }
 
-.header-right{
+.header-right {
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 15px;
+  width: auto; /* Prevent stretching the right section */
 }
 
-.log-button{
-  padding:7px 13px;
-  border:none;
+.cart {
+  flex-shrink: 0;  /* Prevent the cart image from shrinking */
+  margin-right: 20px;  /* Add space between the cart image and the button */
+}
+
+.cart-image {
+  width: 80px;
+  cursor: pointer;
+}
+
+.log-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.log-button {
+  padding: 7px 13px;
+  border: none;
   border-radius: 10px;
-  box-shadow: 0px 0px 2px 0.7px rgb(160, 159, 159) ;
+  box-shadow: 0px 0px 2px 0.7px rgb(160, 159, 159);
   transition: box-shadow 0.5s;
+  text-align: center;  /* Center the text inside the button */
 }
 
-.log-button:hover{
-  box-shadow:  0px 0px 2px 0.7px rgb(13, 13, 13);
+.log-button:hover {
+  box-shadow: 0px 0px 2px 0.7px rgb(13, 13, 13);
 }

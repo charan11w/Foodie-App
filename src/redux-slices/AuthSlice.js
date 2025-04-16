@@ -3,7 +3,6 @@ import React, { act } from 'react'
 
 const initialState = {
   isAuthenticated: false,
-  activeNav: 0,
   userDetails: {}
 }
 
@@ -18,13 +17,10 @@ export const AuthSlice = createSlice({
     logout(state, action) {
       state.isAuthenticated = action.payload.isAuthenticated
       state.userDetails = {}
-    },
-    setNav(state, action) {
-      state.activeNav = action.payload
     }
   }
 })
 
-export const { login, logout, setNav } = AuthSlice.actions
+export const { login, logout} = AuthSlice.actions
 
 export default AuthSlice.reducer

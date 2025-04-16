@@ -1,17 +1,17 @@
 import { Box, Button, Typography, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../redux-slices/AuthSlice';
 
-
-const LogoutForm = ({ onClose }) => {
-  const dispatch = useDispatch();
+const LogoutForm = ({ onClose,closeAll }) => {
 
   const handleLogout = () => {
-    dispatch(logout({isAuthenticated:false}));
-    onClose(); // Close the modal after logout
+    onClose();
+    closeAll();
   };
+
+  const handleClosingModel=() => {
+    closeAll();
+  }
 
   return (
     <Box
@@ -28,7 +28,7 @@ const LogoutForm = ({ onClose }) => {
     >
       {/* Close Icon */}
       <IconButton
-        onClick={onClose}
+        onClick={closeAll}
         sx={{
           position: 'absolute',
           top: 8,
@@ -47,7 +47,7 @@ const LogoutForm = ({ onClose }) => {
         <Button variant="contained" color="error" onClick={handleLogout}>
           Logout
         </Button>
-        <Button variant="outlined" onClick={onClose}>
+        <Button variant="outlined" onClick={handleClosingModel}>
           Cancel
         </Button>
       </Box>
