@@ -21,7 +21,6 @@ const CheckoutModal = ({ open, onClose, children }) => {
           zIndex: 1300,
           display: 'flex',
           flexDirection: 'column',
-          padding: 2,
         }}
       >
         {/* Close Icon */}
@@ -34,11 +33,11 @@ const CheckoutModal = ({ open, onClose, children }) => {
             zIndex: 1400,
           }}
         >
-          <CloseIcon />
+          <CloseIcon className='close-btn'/>
         </IconButton>
 
         {/* Content */}
-        <Box sx={{ paddingTop: 4 }}>
+        <Box >
           {children}
         </Box>
         <Checkout />

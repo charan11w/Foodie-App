@@ -16,9 +16,9 @@ function Header() {
   const location = useLocation();
 
   const { isAuthenticated } = useSelector(state => state.auth)
-  const [models, setModels] = useState({ loginOpen: false, logoutOpen: false })
+  const [models, setModels] = useState({ loginOpen: false, logoutOpen: false ,checkOut:false})
 
-  const { loginOpen, logoutOpen } = models
+  const { loginOpen, logoutOpen,checkOut } = models
 
 
   const pathToIndex = {
@@ -45,7 +45,8 @@ function Header() {
     setModels((pre) => ({
       ...pre,
       loginOpen: false,  
-      logoutOpen: false, 
+      logoutOpen: false,
+      checkOut:false 
     }));
   };
 
@@ -53,6 +54,13 @@ function Header() {
     setModels(pre => ({
       ...pre,
       logoutOpen:true
+    }))
+  }
+
+  const handleCheckout=() => {
+    setModels(pre => ({
+      ...pre,
+      checkOut:true
     }))
   }
 
@@ -123,8 +131,8 @@ function Header() {
           </Box>
         </Modal>
         <div className="cart">
-            <img src={cartImage} className="cart-image"></img>
-            <CheckoutModal open={true}/>
+            <img src={cartImage} className="cart-image" onClick={handleCheckout}></img>
+            <CheckoutModal open={checkOut} onClose={handleClose}/>
         </div>
         <div className="log-btn">
           {
