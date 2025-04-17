@@ -1,12 +1,11 @@
-import emptyOrder from '../../images/icons/empty.png'
 import '../../styles/Orders.css'
+import Items from '../ReusableComponents/Items';
 function Orders() {
   return (
-    <div className="order-container">
-        <div className='orders'>
-          <h2>No orders placed yet</h2>
-        </div>
+    <div className='catergory-food'>
+      <Items />
     </div>
+   
   );
 }
 

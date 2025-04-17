@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-const RES_API='https://238254d4-e40a-4d70-baf6-3690771894a0.mock.pstmn.io'
+const RES_API='https://run.mocky.io/v3/fa9ba3c2-0baf-4b40-857b-6ecd93d9c0b9'
 
 
 export const fetchRestaurant=createAsyncThunk(

@@ -3,7 +3,7 @@ import axios from 'axios'
 import React from 'react'
 
 
-const  ITEM_API='https://e3295676-08c0-446c-8cd9-58828e879aaa.mock.pstmn.io/'
+const  ITEM_API='https://run.mocky.io/v3/eb46509d-023a-40be-91d4-621f1ca2f367'
 
 const initialState = {
   items:[],

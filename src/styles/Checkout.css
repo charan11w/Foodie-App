@@ -13,11 +13,11 @@
 
 .checkout-div{
  padding:20px;
- height: 80vh; 
- border:1px solid black;
+ height: 75vh; 
+ overflow-y: auto;
 }
 .place-order-btn{
-  width:15rem;
+  width:22rem;
   border:none;
   background-color: rgb(204, 47, 47);
   padding: 5px 10px;
@@ -38,4 +38,54 @@
 .close-btn:hover{
   background-color: white;
   border-radius: 50px;
+}
+
+.checkout-items{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid grey;
+  align-items: center;
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
+.image-details{
+  display: flex;
+  flex-direction: column;
+}
+.item-details-div{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.image-item{
+  border-radius: 10px;
+}
+.item-font{
+  margin:0px
+}
+.quantity-div{
+  width: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+
+}
+.increment-q,.decrement-q,.quant{
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.increment-q{
+  background-color: green;
+}
+.decrement-q{
+  background-color: red;
+}
+.subTotal{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:20px;
+  margin-bottom: 0px;
 }

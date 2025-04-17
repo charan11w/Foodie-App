@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../styles/Checkout.css'
 import { useSelector } from 'react-redux'
+import itemImage from '../../images/nimage.png'
 
 export default function Checkout() {
 
@@ -10,7 +11,96 @@ export default function Checkout() {
   return (
     <div className='main-checkout'>
       <div className='empty-div'>Shopping Cart</div>
-      <div className='checkout-div'>Checkout</div>
+      <div className='checkout-div'>
+        <div className='checkout-items'>
+          <div className='item-details-div'>
+            <img src={itemImage} width="80px" className='image-item'/>
+            <div className='image-details'>
+              <h5 className='item-font'>Chicken Byriyani hot</h5>
+              <p className='item-font'>299.00</p>
+            </div>
+          </div>
+          <div className='quantity-div'>
+            <div className='increment-q'>+</div>
+            <div className='quant'>{0}</div>
+            <div className='decrement-q'>-</div>
+          </div>
+        </div>
+        <div className='checkout-items'>
+          <div className='item-details-div'>
+            <img src={itemImage} width="80px" className='image-item'/>
+            <div className='image-details'>
+              <h5 className='item-font'>Chicken Byriyani hot</h5>
+              <p className='item-font'>299.00</p>
+            </div>
+          </div>
+          <div className='quantity-div'>
+            <div className='increment-q'>+</div>
+            <div className='quant'>{0}</div>
+            <div className='decrement-q'>-</div>
+          </div>
+        </div>   
+        <div className='checkout-items'>
+          <div className='item-details-div'>
+            <img src={itemImage} width="80px" className='image-item'/>
+            <div className='image-details'>
+              <h5 className='item-font'>Chicken Byriyani hot</h5>
+              <p className='item-font'>299.00</p>
+            </div>
+          </div>
+          <div className='quantity-div'>
+            <div className='increment-q'>+</div>
+            <div className='quant'>{0}</div>
+            <div className='decrement-q'>-</div>
+          </div>
+        </div>
+        <div className='checkout-items'>
+          <div className='item-details-div'>
+            <img src={itemImage} width="80px" className='image-item'/>
+            <div className='image-details'>
+              <h5 className='item-font'>Chicken Byriyani hot</h5>
+              <p className='item-font'>299.00</p>
+            </div>
+          </div>
+          <div className='quantity-div'>
+            <div className='increment-q'>+</div>
+            <div className='quant'>{0}</div>
+            <div className='decrement-q'>-</div>
+          </div>
+        </div>  
+        <div className='checkout-items'>
+          <div className='item-details-div'>
+            <img src={itemImage} width="80px" className='image-item'/>
+            <div className='image-details'>
+              <h5 className='item-font'>Chicken Byriyani hot</h5>
+              <p className='item-font'>299.00</p>
+            </div>
+          </div>
+          <div className='quantity-div'>
+            <div className='increment-q'>+</div>
+            <div className='quant'>{0}</div>
+            <div className='decrement-q'>-</div>
+          </div>
+        </div>
+        <div className='checkout-items'>
+          <div className='item-details-div'>
+            <img src={itemImage} width="80px" className='image-item'/>
+            <div className='image-details'>
+              <h5 className='item-font'>Chicken Byriyani hot</h5>
+              <p className='item-font'>299.00</p>
+            </div>
+          </div>
+          <div className='quantity-div'>
+            <div className='increment-q'>+</div>
+            <div className='quant'>{0}</div>
+            <div className='decrement-q'>-</div>
+          </div>
+        </div>           
+      </div>
+      <div className='subTotal'>
+        <div>Subtotal</div>
+        <div>2657.00</div>
+      </div>
       <div className='check'>
       <button className='place-order-btn'>place your order</button>
       </div>

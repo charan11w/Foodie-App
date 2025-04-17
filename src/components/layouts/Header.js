@@ -30,7 +30,7 @@ function Header() {
   const routes = [
     { to: '/', label: 'Home', match: ['/', '/home'] },
     { to: '/restaurants', label: 'Restaurants', match: ['/restaurants', '/selectedRestaurant'] },
-    { to: '/orders', label: 'Orders', match: ['/orders', '/restaurantItems'] }
+    { to: '/orders', label: 'Category', match: ['/orders', '/restaurantItems'] }
   ];
 
 

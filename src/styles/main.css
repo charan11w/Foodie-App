@@ -175,6 +175,9 @@ dl, ol, ul {
 /* footer css */
 
 
+.catergory-food{
+  padding:20px 0px;
+}
 .sub-class{
   display: flex;
   justify-content: center;
