@@ -24,13 +24,13 @@ function Header() {
   const pathToIndex = {
     '/': 0,
     '/restaurants': 1,
-    '/orders': 2
+    '/category': 2
   };
 
   const routes = [
     { to: '/', label: 'Home', match: ['/', '/home'] },
     { to: '/restaurants', label: 'Restaurants', match: ['/restaurants', '/selectedRestaurant'] },
-    { to: '/orders', label: 'Category', match: ['/orders', '/restaurantItems'] }
+    { to: '/category', label: 'Category', match: ['/category', '/restaurantItems'] }
   ];
 
 

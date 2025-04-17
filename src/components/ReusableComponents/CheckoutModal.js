@@ -40,7 +40,7 @@ const CheckoutModal = ({ open, onClose, children }) => {
         <Box >
           {children}
         </Box>
-        <Checkout />
+        <Checkout onClose={onClose}/>
       </Box>
     </Modal>
    </>
