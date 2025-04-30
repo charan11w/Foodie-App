@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"; 
 import Loading from "../common/Loading";
 import Restaurants from "../common/Restaurants";
-import { fetchRestaurant, setActiveFood ,restaurantsStatus, filteredRestaurants} from "../../redux-slices/RestaurantSlice";
+import { setActiveFood ,filteredRestaurants} from "../../redux-slices/RestaurantSlice";
 
 function Restaurants1() {
 
@@ -10,8 +10,11 @@ function Restaurants1() {
   const {activeFood} = useSelector(state => state.restaurants)
   console.log(activeFood)
   const restaurants=useSelector(filteredRestaurants)
-  const status=useSelector(restaurantsStatus)
-  const error=useSelector(restaurantsStatus)
+  // const status=useSelector(restaurantsStatus)
+  // const error=useSelector(restaurantsStatus)
+
+  const error=null
+  const status='succeed'
 
   const foodType = [
     { type: "all", name: "All", class: 'all-btn' },
@@ -20,7 +23,7 @@ function Restaurants1() {
   ];
   
   useEffect( () => {
-    dispatch(fetchRestaurant())
+    // dispatch(fetchRestaurant())
     dispatch(setActiveFood('all'))
   } 
   ,[dispatch])
