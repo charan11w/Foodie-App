@@ -1,0 +1,77 @@
+.itemClass{
+  width: 460px;
+  height: 416px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.showImg{
+  height: 200px;
+  border-radius: 10px;
+}
+.ItemDetails{
+  padding: 10px;
+}
+.priceDetails{
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+.ItemName{
+  font: bold 18px arial;
+}
+.extraCharges{
+  font: 14px arial;
+  color: grey;
+}
+
+.itemPrice{
+  color: rgb(58, 122, 232);
+  font-weight: bold;
+}
+.itemPrice2{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.qButton{
+  border-radius: 50px;
+  background-color: red;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  transition: background-color 0.15s;
+  border: none;
+}
+.qButton:hover{
+  background-color: green;
+}
+.totalItemPrice{
+  color: red;
+  font-weight: bold;
+}
+.tAmount{
+  font-weight: bold;
+}
+
+.adCart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.addToCart{
+  border: none;
+  padding: 5px 30px;
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+}
+.addToCart:hover{
+  color: #000;
+  background-color: green;
+}

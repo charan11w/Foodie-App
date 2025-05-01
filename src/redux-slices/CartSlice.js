@@ -2,25 +2,52 @@ import { createSlice } from '@reduxjs/toolkit'
 import React, { act } from 'react'
 
 const initialState = {
-  cart:{}
+  cart:[],
+  selectedItem:{}
 }
 
 export const CartSlice = createSlice({
   name: 'cart_slice',
   initialState,
   reducers: {
-    addToCart(state,action) {
-      state.cart=payload.action
-    },
-    removeFromCart(state,action){
+    addToCart(state, action) {
+      const item = action.payload;
+      const existingItem = state.cart.find((i) => i.id === item.id);
 
+      if (existingItem) {
+        existingItem.quantity += item.quantity;
+      } else {
+        state.cart.push({ ...item, quantity: item.quantity });
+      }
     },
-    updateCart(state,action){
+    // Optional: Remove item or reduce quantity
+    removeFromCart(state, action) {
+      const itemId = action.payload;
+      state.cart = state.cart.filter((item) => item.id !== itemId);
+    },
+    decrementQty(state, action) {
+      const itemId = action.payload;
+      const existingItem = state.cart.find((i) => i.id === itemId);
 
-    }
+      if (existingItem && existingItem.quantity > 1) {
+        existingItem.quantity -= 1;
+      } else {
+        state.cart = state.cart.filter((item) => item.id !== itemId);
+      }
+    },
+    incrementQty(state,action){
+      const itemId=action.payload
+      const existingItem=state.cart.find((i) => i.id === itemId)
+      if(existingItem && existingItem.quantity <10){
+        existingItem.quantity+=1;
+      }
+    },
+    selectItem(state,action){
+      state.selectedItem=action.payload
+    },
   }
-})
+});
 
-export const { addToCart, removeFromCart,updateCart} = CartSlice.actions
+export const { addToCart, removeFromCart,updateCart,selectItem,decrementQty,incrementQty} = CartSlice.actions
 
 export default CartSlice.reducer

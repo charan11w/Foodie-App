@@ -138,6 +138,21 @@ dl, ol, ul {
   transition: all 0.2s ease-in-out;
 }
 
+
+.cart{
+  position: relative;
+}
+.cartLength {
+  position: absolute;
+  top: 47%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+}
 /* home-page Css */
 .h-jpg{
   width:60px;

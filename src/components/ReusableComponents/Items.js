@@ -5,6 +5,7 @@ import productImage from '../../images/nimage.png'
 import '../../styles/items.css'
 import { Box, Modal } from '@mui/material';
 import ShowItem from './ShowItem';
+import { selectItem } from '../../redux-slices/CartSlice';
 
 const Items = () => {
   const dispatch = useDispatch();
@@ -21,11 +22,13 @@ const Items = () => {
   const [show, setShowItem] = useState(false);
 
 
-  const handleOpen = () => {
+
+  const handleOpen = (item) => {
     setShowItem(true)
+    dispatch(selectItem(item))
   }
 
-  const handleClose= () => {
+  const handleClose = () => {
     setShowItem(false)
   }
 
@@ -125,7 +128,7 @@ const Items = () => {
 
           <div className='products'>
             {foodItems.map((item, index) => (
-              <div className='product' key={index} onClick={handleOpen}>
+              <div className='product' key={index} onClick={() => handleOpen(item)}>
                 <img src={productImage} className='product-image' alt={item.name} />
                 <div className='product-details'>
                   <div className='restaurantName'>{name}</div>
@@ -149,9 +152,14 @@ const Items = () => {
                 left: 0,
                 zIndex: 1300,
               }}
-            ><ShowItem /></Box>
-
+              onClick={handleClose} 
+            >
+              <div onClick={(e) => e.stopPropagation()}>
+                <ShowItem  onClose={handleClose}/>
+              </div>
+            </Box>
           </Modal>
+
         </div>
 
       </div>

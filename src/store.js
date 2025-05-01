@@ -3,6 +3,7 @@ import LoginFormReducer from "./redux-slices/LoginFormSlice";
 import RestaurantReducer,{fetchRestaurant} from './redux-slices/RestaurantSlice'
 import AuthSlice  from "./redux-slices/AuthSlice";
 import  ItemSlice  from "./redux-slices/ItemSlice";
+import  CartSlice  from "./redux-slices/CartSlice";
 
 
 export const store = configureStore({
@@ -10,6 +11,7 @@ export const store = configureStore({
     login:LoginFormReducer,
     restaurants:RestaurantReducer,
     auth:AuthSlice,
-    items:ItemSlice
+    items:ItemSlice,
+    cart:CartSlice
   }
 })

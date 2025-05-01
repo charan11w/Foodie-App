@@ -17,6 +17,7 @@ function Header() {
 
   const { isAuthenticated } = useSelector(state => state.auth)
   const [models, setModels] = useState({ loginOpen: false, logoutOpen: false ,checkOut:false})
+  const {cart} = useSelector(state => state.cart)
 
   const { loginOpen, logoutOpen,checkOut } = models
 
@@ -132,6 +133,7 @@ function Header() {
         </Modal>
         <div className="cart">
             <img src={cartImage} className="cart-image" onClick={handleCheckout}></img>
+            <div className="cartLength">{cart.length}</div>
             <CheckoutModal open={checkOut} onClose={handleClose}/>
         </div>
         <div className="log-btn">
