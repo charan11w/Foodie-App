@@ -2,7 +2,7 @@
   width:33vw;
   height:80vh;
   border: 1px solid grey;
-  margin:20px;
+  margin:20px auto;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0.7px rgb(0,0,0);
   padding:20px;
@@ -80,4 +80,16 @@
   border-radius: 8px;
   margin-top: 16px;
   cursor: pointer;
+}
+.totalAmt{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.t-last{
+  border-bottom: 1px solid black;
+}
+.total-all{
+  color: #e23e57;
 }

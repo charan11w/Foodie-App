@@ -1,8 +1,12 @@
 import React from 'react'
 import Img from '../../images/nimage.png'
 import '../../styles/OrderSummary.css'
+import { useSelector } from 'react-redux';
 
 export default function OrderSummary() {
+
+  const { cart } = useSelector(state => state.cart)
+  console.log(cart)
   function loadRazorpayScript(src) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
@@ -16,15 +20,15 @@ export default function OrderSummary() {
       document.body.appendChild(script);
     });
   }
-  
+
   const handlePayment = async () => {
     const res = await loadRazorpayScript("https://checkout.razorpay.com/v1/checkout.js");
-  
+
     if (!res) {
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
-  
+
     const options = {
       key: "YOUR_PUBLIC_KEY_HERE", // Replace with Razorpay test/public key
       amount: 2082 * 3 * 100, // amount in paise
@@ -44,45 +48,31 @@ export default function OrderSummary() {
         color: "#3399cc",
       },
     };
-  
+
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
-    
+
   const totalAmount = 2082 * 3 * 100; // ₹2082 × 3 items × 100 (to convert to paise)
+
+  const amountTotal=cart.reduce((total,item) => total+item.price * item.quantity,0)
+  const overallAmount=amountTotal+23+3;
 
   return (
     <div className='order-summary'>
       <div className='title-order'>Order Summary</div>
       <div className='order-items'>
-        <div className='orders-cont'>
-          <div className='item-image-name'>
-            <img src={Img} width={30} height={30} />
-            <div>name</div>
+        {cart.map((item) => (
+          <div className='orders-cont' key={item.id}>
+            <div className='item-image-name'>
+              <img src={Img} width={30} height={30} />
+              <div>{item.name}</div>
+            </div>
+            <div className='item-price-div'>
+              {item.price*item.quantity}.0 &#8377;
+            </div>
           </div>
-          <div className='item-price-div'>
-            2082.0 &#8377;
-          </div>
-        </div>
-        <div className='orders-cont'>
-          <div className='item-image-name'>
-            <img src={Img} width={30} height={30} />
-            <div>name</div>
-          </div>
-          <div className='item-price-div'>
-            2082.0 &#8377;
-          </div>
-        </div>
-        <div className='orders-cont'>
-          <div className='item-image-name'>
-            <img src={Img} width={30} height={30} />
-            <div>name</div>
-          </div>
-          <div className='item-price-div'>
-            2082.0 &#8377;
-          </div>
-        </div>
-
+        ))}
       </div>
       <div className='coupon-div'>
         <input type='text' className='coupon-input' placeholder='Enter your Coupon code' />
@@ -96,6 +86,32 @@ export default function OrderSummary() {
         <div>Add More Delivery Instructions</div>
         <div>&gt;&gt;</div>
       </div>
+      <div className='totalAmt'>
+        <div>Items Price</div>
+        <div>{amountTotal}.0 &#8377;</div>
+      </div>
+       <div className='totalAmt'>
+        <div>Discount</div>
+        <div>(-)0.0&#8377;</div>
+      </div>
+       <div className='totalAmt'>
+        <div>Deliveryman Tips</div>
+        <div>(+)0.0&#8377;</div>
+      </div>
+       <div className='totalAmt'>
+        <div>Platform Fees</div>
+        <div>(-)3.0&#8377;</div>
+      </div>
+      <div className='totalAmt t-last'>
+        <div>Delivery Fee</div>
+        <div>(+)23.0&#8377;</div>
+      </div>
+      <div className='totalAmt total-all'>
+        <div>Total</div>
+        <div>{overallAmount}.0&#8377;</div>
+      </div>
+      
+
       <button className="place-order-btn" onClick={handlePayment}>
         Place Order & Pay
       </button>

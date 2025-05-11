@@ -1,0 +1,146 @@
+.sub-class {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.us {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.sub-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: green;
+}
+
+.sub-title2 {
+  color: grey;
+  font-size: 1rem;
+}
+
+.sub-input {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px auto 0 auto;
+  text-align: center;
+}
+
+.s-email {
+  padding: 10px;
+  border: none;
+  width: 300px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.email-submit {
+  border: none;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.ftr-cont {
+  padding: 30px 0;
+  background-color: #000;
+}
+
+.ftr {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 15px;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  color: #c4c3c3;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer-part {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #c4c3c3;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .sub-class {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .us {
+    align-items: center;
+  }
+
+  .sub-title {
+    font-size: 1.5rem;
+  }
+
+  .sub-title2 {
+    font-size: 0.9rem;
+  }
+
+  .sub-input {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .s-email,
+  .email-submit {
+    width: 100%;
+    max-width: 300px;
+    font-size: 14px;
+    border: 1px solid black;
+  }
+
+  .footer-ul {
+    font-size: 12px;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .footer-part {
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+}

@@ -133,7 +133,7 @@ function Header() {
         </Modal>
         <div className="cart">
             <img src={cartImage} className="cart-image" onClick={handleCheckout}></img>
-            <div className="cartLength">{cart.length}</div>
+            <div className="cartLength" onClick={handleCheckout}>{cart.length}</div>
             <CheckoutModal open={checkOut} onClose={handleClose}/>
         </div>
         <div className="log-btn">
