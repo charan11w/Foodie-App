@@ -1,12 +1,13 @@
 /* Header container styles */
 .header-top {
   display: flex;
+  width:100vw;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 15px 20px;
   background-color: #e23e57;
   color: white;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
 }
@@ -17,7 +18,6 @@
   font-weight: bold;
 }
 
-/* Center nav */
 .header-center {
   display: flex;
   justify-content: center;
@@ -37,7 +37,6 @@
   font-weight: bold;
 }
 
-/* Right side buttons */
 .header-right {
   display: flex;
   align-items: center;
@@ -73,6 +72,13 @@
     display: none;
   }
 
+  .cart{
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
   .hamburger {
     display: block;
   }
@@ -101,4 +107,52 @@
     left: 70%;
     cursor: pointer;
   }
+}
+
+.mobile-menu-icon{
+  font-size: 28px;
+  display: none;
+}
+
+
+@media (max-width:480px){
+  .header-center,
+  .header-right{
+    display: none;
+  }
+
+  .header-left{
+    margin:0 auto;
+  }
+
+  .mobile-menu-icon{
+    display: block;
+    position: absolute;
+    left: 15px;
+    z-index: 999;
+  }
+   .header-right .cart {
+    display: flex;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    align-items: center;
+  }
+}
+
+.links {
+  font-size: 18px;
+  padding: 10px 0;
+  text-decoration: none;
+  color: black;
+}
+
+.log-button {
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  background-color: #f04e30;
+  color: white;
+  border: none;
+  border-radius: 4px;
 }

@@ -16,10 +16,10 @@ function Header() {
   const location = useLocation();
 
   const { isAuthenticated } = useSelector(state => state.auth)
-  const [models, setModels] = useState({ loginOpen: false, logoutOpen: false ,checkOut:false})
-  const {cart} = useSelector(state => state.cart)
+  const [models, setModels] = useState({ loginOpen: false, logoutOpen: false, checkOut: false })
+  const { cart } = useSelector(state => state.cart)
 
-  const { loginOpen, logoutOpen,checkOut } = models
+  const { loginOpen, logoutOpen, checkOut } = models
 
 
   const pathToIndex = {
@@ -45,35 +45,82 @@ function Header() {
   const handleClose = () => {
     setModels((pre) => ({
       ...pre,
-      loginOpen: false,  
+      loginOpen: false,
       logoutOpen: false,
-      checkOut:false 
+      checkOut: false
     }));
   };
 
   const handleLogOut = () => {
     setModels(pre => ({
       ...pre,
-      logoutOpen:true
+      logoutOpen: true
     }))
   }
 
-  const handleCheckout=() => {
+  const handleCheckout = () => {
     setModels(pre => ({
       ...pre,
-      checkOut:true
+      checkOut: true
     }))
   }
 
-  const handleLogOutClose= () => {
+  const handleLogOutClose = () => {
     setModels(pre => ({
       ...pre,
-      logoutOpen:true
+      logoutOpen: true
     }))
     dispatch(logout({ isAuthenticated: false }))
   }
+
+
+  //mobile functuon
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMobileMenuOpen = () => setMobileMenuOpen(true);
+  const handleMobileMenuClose = () => setMobileMenuOpen(false);
   return (
     <div className="header-top">
+      <div className="mobile-menu-icon" onClick={handleMobileMenuOpen}>
+        &#9776;
+      </div>
+      <Modal open={mobileMenuOpen} onClose={handleMobileMenuClose}>
+  <Box
+    sx={{
+      height: '100vh',
+      width: '70vw',
+      maxWidth: '300px',
+      bgcolor: 'white',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      zIndex: 1400,
+      p: 2,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 2,
+    }}
+  >
+    <button onClick={handleMobileMenuClose} style={{ alignSelf: 'flex-end' }}>
+      ❌
+    </button>
+
+    <Link to="/" onClick={handleMobileMenuClose} className="links">Home</Link>
+    <Link to="/restaurants" onClick={handleMobileMenuClose} className="links">Restaurants</Link>
+    <Link to="/category" onClick={handleMobileMenuClose} className="links">Category</Link>
+
+    {isAuthenticated ? (
+      <button className="log-button" onClick={() => { handleLogOut(); handleMobileMenuClose(); }}>
+        Logout
+      </button>
+    ) : (
+      <button className="log-button" onClick={() => { handleLogin(); handleMobileMenuClose(); }}>
+        Login
+      </button>
+    )}
+  </Box>
+</Modal>
+
       <div className="header-left">
         <div className="ap-name">
           <Link to='/' className="links " key={"n"}>
@@ -132,9 +179,9 @@ function Header() {
           </Box>
         </Modal>
         <div className="cart">
-            <img src={cartImage} className="cart-image" onClick={handleCheckout}></img>
-            <div className="cartLength" onClick={handleCheckout}>{cart.length}</div>
-            <CheckoutModal open={checkOut} onClose={handleClose}/>
+          <img src={cartImage} className="cart-image" onClick={handleCheckout}></img>
+          <div className="cartLength" onClick={handleCheckout}>{cart.length}</div>
+          <CheckoutModal open={checkOut} onClose={handleClose} />
         </div>
         <div className="log-btn">
           {

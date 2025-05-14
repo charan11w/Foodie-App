@@ -1,53 +1,67 @@
-.header-item{
+/* HEADER SECTION */
+.header-item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height:5rem;
+  height: 5rem;
   background-color: rgb(220, 219, 219);
   margin-top: 0.2rem;
-  padding:0.5rem;
-}
-.left,.center,.right{
-  flex: 1fr;
-}
-.left{
-  font:bold 1.4rem arial;
-  padding-left:0.5rem;
-}
-.rigth{
-  padding: right 0.5rem;
+  padding: 0.5rem;
 }
 
-.center{
-  flex:2fr;
+.left, .center, .right {
+  flex: 1fr;
+}
+
+.left {
+  font: bold 1.4rem Arial;
+  padding-left: 0.5rem;
+}
+
+.right {
+  padding-right: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.center {
+  flex: 2fr;
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
-.filter{
+
+.filter {
   display: flex;
   align-items: center;
   gap: 0.3rem;
 }
-#veg,#non-veg,.vi,.nvi{
+
+#veg, #non-veg, .vi, .nvi {
   cursor: pointer;
 }
-.food-search{
-  padding:0.3rem;
-  border-radius: 0.2rem 0 0 0.2rem;
 
+.food-search {
+  padding: 0.3rem;
+  border-radius: 0.2rem 0 0 0.2rem;
   border-width: 1px;
   border-color: red;
-}
-.food-search-btn{
-  padding:0.33rem;
-  border: none;
-  background-color: red;
-  border-radius: 0 0.3rem 0.3rem 0;
-  margin-left: -0.9rem;
+  border-style: solid;
 }
 
+.food-search-btn {
+  padding: 0.33rem;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 0 0.3rem 0.3rem 0;
+  margin-left: -0.9rem;
+  cursor: pointer;
+}
+
+/* ALL ITEMS LAYOUT */
 .all-items {
   display: flex;
   flex-direction: row;
@@ -55,6 +69,7 @@
   gap: 20px;
   padding: 1rem 0 1rem 0;
 }
+
 .filters {
   display: flex;
   flex-direction: column;
@@ -65,11 +80,13 @@
   padding: 10px;
   border-radius: 8px;
 }
+
 .filter-option label,
 .filter-option input {
   cursor: pointer;
 }
 
+/* PRODUCT GRID */
 .products {
   flex: 1;
   display: grid;
@@ -92,16 +109,18 @@
   cursor: pointer;
 }
 
-.product:hover{
+.product:hover {
   box-shadow: 0px 0px 0.5rem 0.1rem rgb(0,0,0);
 }
-.product-image{
+
+.product-image {
   display: block;
   width: 12.5rem;
-  border-radius:10px;
-  height:9.375rem;
+  border-radius: 10px;
+  height: 9.375rem;
 }
-.product-details{
+
+.product-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,17 +128,83 @@
   margin-top: 0.5rem;
   row-gap: 0.5rem;
 }
-.restaurantName{
+
+.restaurantName {
   color: grey;
-  font:bold 0.8rem arial
+  font: bold 0.8rem Arial;
 }
-.product-name{
-  font: bold 0.9rem arial;
+
+.product-name {
+  font: bold 0.9rem Arial;
 }
-.product-price{
+
+.product-price {
   color: rgb(218, 45, 45);
-  font: 1rem arial;
+  font: 1rem Arial;
 }
 
+/* --------------------------- */
+/*         RESPONSIVE          */
+/* --------------------------- */
 
+@media (max-width: 768px) {
+  .header-item {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 1rem;
+  }
 
+  .left, .center, .right {
+    flex: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .center {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .food-search {
+    width: 70%;
+    margin-bottom: 0.5rem;
+  }
+
+  .food-search-btn {
+    margin-left: 0;
+  }
+
+  .all-items {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .filters {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding: 0.5rem;
+  }
+
+  .product {
+    padding: 10px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+}

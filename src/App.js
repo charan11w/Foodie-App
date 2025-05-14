@@ -7,13 +7,15 @@ import Orders from "./components/pages/Orders";
 import {SelectedRes} from  './components/pages/SelectedRes'
 import Items from "./components/ReusableComponents/Items";
 import Category from "./components/pages/Category";
+import  './App.css'
 
 
 const App=() =>{  
   return (
       <BrowserRouter>
         <Header  />
-        <Routes>
+        <div className="app-div">
+          <Routes>
           <Route path='/' element={<Home />} />
           <Route path='items' element={<Items />} />
           <Route path='restaurants' element={<Restaurants />} />
@@ -22,6 +24,7 @@ const App=() =>{
           <Route path='selectedRestaurant' element={<SelectedRes />} />
           <Route path='restaurantItems' element={<Orders />} />
         </Routes>
+        </div>
         
         <Footer />
       </BrowserRouter>

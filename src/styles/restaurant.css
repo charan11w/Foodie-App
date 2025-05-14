@@ -24,7 +24,11 @@
 }
 
 .types-R{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Default 4 items per row */
+  gap: 20px;
+  width: 100%;
+
 }
 
 .store-type{
@@ -157,4 +161,30 @@
 .center-div:hover{
   box-shadow: 0px 0px 5px 0.5px rgb(0,0,0);
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .types-R {
+    grid-template-columns: 1fr; /* 1 item per row on small screens */
+  }
+
+  .food-names{
+    font-size: 10px;
+  }
+
+  .center-div {
+    padding: 10px;
+  }
+
+  .image-res {
+    max-height: 150px;
+  }
+
+  .res-name {
+    font-size: 1rem;
+  }
+
+  .adrs-res,
+  .delivery-time {
+    font-size: 0.9rem;
+  }
 }

@@ -1,77 +1,136 @@
-.itemClass{
+.itemClass {
   width: 460px;
-  height: 416px;
+  height: auto;
   display: flex;
   flex-direction: column;
   background-color: white;
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px;
 }
 
-.showImg{
+.showImg {
+  width: 100%;
   height: 200px;
-  border-radius: 10px;
-}
-.ItemDetails{
-  padding: 10px;
-}
-.priceDetails{
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-}
-.ItemName{
-  font: bold 18px arial;
-}
-.extraCharges{
-  font: 14px arial;
-  color: grey;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
 }
 
-.itemPrice{
+.ItemDetails {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ItemName {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+}
+
+.extraCharges {
+  font-size: 14px;
+  color: grey;
+  margin-top: -5px;
+}
+
+.priceDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.itemPrice {
   color: rgb(58, 122, 232);
   font-weight: bold;
 }
-.itemPrice2{
+
+.itemPrice2 {
   display: flex;
   gap: 5px;
   align-items: center;
-  justify-content: center;
 }
 
-.qButton{
+.qButton {
   border-radius: 50px;
   background-color: red;
   cursor: pointer;
   width: 28px;
   height: 28px;
-  transition: background-color 0.15s;
+  color: white;
+  font-weight: bold;
   border: none;
+  transition: background-color 0.15s;
 }
-.qButton:hover{
+
+.qButton:hover:enabled {
   background-color: green;
 }
-.totalItemPrice{
+
+.qButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tAmount {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.totalItemPrice {
   color: red;
   font-weight: bold;
 }
-.tAmount{
-  font-weight: bold;
-}
 
-.adCart{
+.adCart {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
-.addToCart{
+
+.addToCart {
   border: none;
-  padding: 5px 30px;
+  padding: 8px 25px;
   background-color: red;
   border-radius: 5px;
   color: white;
+  font-weight: bold;
+  transition: background-color 0.15s, color 0.15s;
 }
-.addToCart:hover{
-  color: #000;
+
+.addToCart:hover {
   background-color: green;
+  color: black;
+}
+
+@media (max-width: 500px) {
+  .itemClass {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .showImg {
+    height: 190px;
+  }
+
+  .ItemName {
+    font-size: 16px;
+  }
+
+  .extraCharges {
+    font-size: 13px;
+  }
+
+  .qButton {
+    width: 24px;
+    height: 24px;
+  }
+
+  .addToCart {
+    padding: 6px 20px;
+    font-size: 14px;
+  }
 }

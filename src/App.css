@@ -1,0 +1,9 @@
+.app-div{
+  margin-top: 70px;
+}
+
+@media (min-width:740px){
+  .app-div{
+    margin-top: 97px;
+  }
+}

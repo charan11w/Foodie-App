@@ -39,7 +39,7 @@ function Restaurants1() {
               {foodType.map((food, index) => (
                 <button
                   key={index}
-                  className={`${food.class} ${activeFood === food.type ? "activeFood" : ""}`}
+                  className={` food-names ${food.class} ${activeFood === food.type ? "activeFood" : ""}`}
                   onClick={() => dispatch(setActiveFood(food.type))} 
                 >
                   {food.name}

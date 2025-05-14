@@ -30,47 +30,48 @@ export const SelectedRes=() => {
 
   return (
     <div className="selected">
-      <div className="container first-one">
-        <div className="row mainRes">
-          {/* Restaurant Details Section */}
-          <div className="detailes col-6">
-            <div className="selectedName row">
-              <div className="col-3 csr">
-                <img src={mana} className="smallImg" alt="Restaurant Logo" />
-              </div>
-              <div className="col-9 seal rcb">
-                <div className="rs-name">{name}</div>
-                <div className="rating">
-                  {renderStars(ratings)} <span className="rating-span">{ratings} | {numberOfReviews} Reviews</span>
-                </div>
-                <div className="address">
-                  <FiMapPin /> {address}
-                </div>
-              </div>
-            </div>
-            <div className="remember ">
-                <div>
-                  <div className="perName">74%</div>
-                  <div >Positive reviews</div>
-                </div>
-                <div>
-                  <div className="perName">{minimumOrder}.00&#8377;</div>
-                  <div>Minimum Order Value</div>
-                </div>
-                <div>
-                  <div className="perName">{deliveryTime}</div>
-                  <div>Delivery Time</div>
-                </div>
-            </div>
+  <div className="container first-one">
+    <div className="row mainRes">
+      {/* Restaurant Details Section */}
+      <div className="details col-12 col-md-6">
+        <div className="selectedName row">
+          <div className="col-3 csr">
+            <img src={mana} className="smallImg" alt="Restaurant Logo" />
           </div>
-          
-          {/* Restaurant Image Section */}
-          <div className="imagi col-6">
-            <img src={noImage} className="resImage" alt="Restaurant" />
+          <div className="col-9 seal rcb">
+            <div className="rs-name">{name}</div>
+            <div className="rating">
+              {renderStars(ratings)} <span className="rating-span">{ratings} | {numberOfReviews} Reviews</span>
+            </div>
+            <div className="address">
+              <FiMapPin /> {address}
+            </div>
           </div>
         </div>
-        <Items />
+        <div className="remember">
+          <div>
+            <div className="perName">74%</div>
+            <div>Positive reviews</div>
+          </div>
+          <div>
+            <div className="perName">{minimumOrder}.00&#8377;</div>
+            <div>Minimum Order Value</div>
+          </div>
+          <div>
+            <div className="perName">{deliveryTime}</div>
+            <div>Delivery Time</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Restaurant Image Section */}
+      <div className="imagi col-12 col-md-6">
+        <img src={noImage} className="resImage" alt="Restaurant" />
       </div>
     </div>
+    <Items />
+  </div>
+</div>
+
   );
 };
