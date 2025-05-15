@@ -15,6 +15,7 @@ const App=() =>{
   const SelectedRes=lazy(() => import('./components/pages/SelectedRes'))
   const Items=lazy(() => import('./components/ReusableComponents/Items'))
   const Category=lazy(() => import('./components/pages/Category'))
+  const OrdersHistory=lazy(() => import('./components/pages/OrdersHistory'))
 
   return (
       <BrowserRouter>
@@ -29,6 +30,7 @@ const App=() =>{
           <Route path='orders' element={<Orders />} />
           <Route path='selectedRestaurant' element={<SelectedRes />} />
           <Route path='restaurantItems' element={<Orders />} />
+          <Route path='ordersHistory' element={<OrdersHistory />} />
         </Routes>
         </div>  
         <Footer />

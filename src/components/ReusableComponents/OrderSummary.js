@@ -1,12 +1,17 @@
 import React from 'react'
 import Img from '../../images/nimage.png'
 import '../../styles/OrderSummary.css'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { emptyCart } from '../../redux-slices/CartSlice';
+import { addToOrders } from '../../redux-slices/orderSlice'
+import { useNavigate } from 'react-router-dom';
 
 export default function OrderSummary() {
 
+
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
   const { cart } = useSelector(state => state.cart)
-  console.log(cart)
   function loadRazorpayScript(src) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
@@ -37,13 +42,24 @@ export default function OrderSummary() {
       description: "₹1 Test Payment",
       image: "https://your-logo-url.com/logo.png", // Optional
       handler: function (response) {
-        alert("Payment successful! ID: " + response.razorpay_payment_id);
+        const newOrder = {
+          orderId: response.razorpay_payment_id,
+          date: new Date().toLocaleDateString(),
+          status: "Completed",
+          total: overallAmount,
+          items: cart,
+        };
+
+        dispatch(addToOrders(newOrder));
+        dispatch(emptyCart)
+        navigate('/ordersHistory')
+        
       },
       prefill: {
         name: "Charan Kumar",
         email: "charan@example.com",
         contact: "9876543210",
-      },
+      },  
       theme: {
         color: "#3399cc",
       },

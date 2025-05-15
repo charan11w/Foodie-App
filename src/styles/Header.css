@@ -66,6 +66,20 @@
   cursor: pointer;
 }
 
+.cartLength {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  height:10px
+}
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
   .header-center {
@@ -104,7 +118,7 @@
   }
 
   .cartLength {
-    left: 70%;
+    left: 60%;
     cursor: pointer;
   }
 }
