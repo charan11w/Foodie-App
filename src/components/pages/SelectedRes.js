@@ -75,3 +75,6 @@ export const SelectedRes=() => {
 
   );
 };
+
+
+export default SelectedRes;
