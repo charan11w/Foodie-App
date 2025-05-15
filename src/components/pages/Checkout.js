@@ -52,7 +52,7 @@ export default function Checkout({ onClose }) {
           <span>Subtotal</span>
           <span>₹{getSubtotal().toFixed(2)}</span>
         </div>
-        <button className='place-order-btn' onClick={handlePlaceOrder}>Place Your Order</button>
+        <button className='place-order-btn' onClick={handlePlaceOrder} disabled={cart.length>0 ? false:true}>Place Your Order</button>
       </div>
     </div>
   );

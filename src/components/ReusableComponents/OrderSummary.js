@@ -30,14 +30,14 @@ export default function OrderSummary() {
     }
 
     const options = {
-      key: "YOUR_PUBLIC_KEY_HERE", // Replace with Razorpay test/public key
-      amount: 2082 * 3 * 100, // amount in paise
+      key: "rzp_test_2reBI6brxXggiQ", // Your test key
+      amount: 100, // ₹1 = 100 paise
       currency: "INR",
       name: "Foodie App",
-      description: "Order Payment",
-      image: "https://your-logo-url.com/logo.png",
+      description: "₹1 Test Payment",
+      image: "https://your-logo-url.com/logo.png", // Optional
       handler: function (response) {
-        alert("Payment ID: " + response.razorpay_payment_id);
+        alert("Payment successful! ID: " + response.razorpay_payment_id);
       },
       prefill: {
         name: "Charan Kumar",
@@ -55,8 +55,8 @@ export default function OrderSummary() {
 
   const totalAmount = 2082 * 3 * 100; // ₹2082 × 3 items × 100 (to convert to paise)
 
-  const amountTotal=cart.reduce((total,item) => total+item.price * item.quantity,0)
-  const overallAmount=amountTotal+23+3;
+  const amountTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0)
+  const overallAmount = amountTotal + 23 + 3;
 
   return (
     <div className='order-summary'>
@@ -69,7 +69,7 @@ export default function OrderSummary() {
               <div>{item.name}</div>
             </div>
             <div className='item-price-div'>
-              {item.price*item.quantity}.0 &#8377;
+              {item.price * item.quantity}.0 &#8377;
             </div>
           </div>
         ))}
@@ -90,15 +90,15 @@ export default function OrderSummary() {
         <div>Items Price</div>
         <div>{amountTotal}.0 &#8377;</div>
       </div>
-       <div className='totalAmt'>
+      <div className='totalAmt'>
         <div>Discount</div>
         <div>(-)0.0&#8377;</div>
       </div>
-       <div className='totalAmt'>
+      <div className='totalAmt'>
         <div>Deliveryman Tips</div>
         <div>(+)0.0&#8377;</div>
       </div>
-       <div className='totalAmt'>
+      <div className='totalAmt'>
         <div>Platform Fees</div>
         <div>(-)3.0&#8377;</div>
       </div>
@@ -110,7 +110,7 @@ export default function OrderSummary() {
         <div>Total</div>
         <div>{overallAmount}.0&#8377;</div>
       </div>
-      
+
 
       <button className="place-order-btn" onClick={handlePayment}>
         Place Order & Pay
