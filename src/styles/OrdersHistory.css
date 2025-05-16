@@ -60,6 +60,16 @@
   margin-left: 6px;
 }
 
+@media (max-width:640px){
+  .status-text{
+    font-size: 10px;
+  }
+  .order-id {
+  font-size: 14px;
+  font-weight: 600;
+}
+}
+
 .items-section h4 {
   margin-bottom: 10px;
   font-size: 16px;

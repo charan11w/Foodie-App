@@ -31,7 +31,8 @@ function Header() {
   const routes = [
     { to: '/', label: 'Home', match: ['/', '/home'] },
     { to: '/restaurants', label: 'Restaurants', match: ['/restaurants', '/selectedRestaurant'] },
-    { to: '/category', label: 'Category', match: ['/category', '/restaurantItems'] }
+    { to: '/category', label: 'Category', match: ['/category', '/restaurantItems'] },
+    {to:'/ordersHistory', label:'Orders',match:['/ordersHistory']}
   ];
 
 
@@ -108,6 +109,7 @@ function Header() {
     <Link to="/" onClick={handleMobileMenuClose} className="links">Home</Link>
     <Link to="/restaurants" onClick={handleMobileMenuClose} className="links">Restaurants</Link>
     <Link to="/category" onClick={handleMobileMenuClose} className="links">Category</Link>
+    <Link to='/ordersHistory' onClick={handleMobileMenuClose} className="links">My Orders</Link>
 
     {isAuthenticated ? (
       <button className="log-button" onClick={() => { handleLogOut(); handleMobileMenuClose(); }}>

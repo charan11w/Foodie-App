@@ -51,7 +51,7 @@ export default function OrderSummary() {
         };
 
         dispatch(addToOrders(newOrder));
-        dispatch(emptyCart)
+        dispatch(emptyCart())
         navigate('/ordersHistory')
         
       },
