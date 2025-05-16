@@ -1,41 +1,55 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import  './App.css'
+import './App.css'
 import { lazy, Suspense } from "react";
 import Loading from "./components/common/Loading";
+import { routes } from './routesConfig'
+import ProtectedRoute from "./ProtectedRoute";
+import { useSelector } from "react-redux";
+import { HeaderProvider } from "./context/HeaderContext";
 
 
 
-const App=() =>{  
+const App = () => {
 
-  const Home=lazy(() => import('./components/pages/Home'))
-  const Header=lazy(() => import('./components/layouts/Header'))
-  const Footer=lazy(() => import('./components/layouts/Footer'))
-  const Restaurants1=lazy(() => import('./components/pages/Restaurants'))
-  const Orders=lazy(() => import('./components/pages/Orders'))
-  const SelectedRes=lazy(() => import('./components/pages/SelectedRes'))
-  const Items=lazy(() => import('./components/ReusableComponents/Items'))
-  const Category=lazy(() => import('./components/pages/Category'))
-  const OrdersHistory=lazy(() => import('./components/pages/OrdersHistory'))
+
+  const { isAuthenticated } = useSelector(state => state.auth)
+  const Header = lazy(() => import('./components/layouts/Header'))
+  const Footer = lazy(() => import('./components/layouts/Footer'))
+
+
 
   return (
-      <BrowserRouter>
+    <BrowserRouter>
+      <HeaderProvider>
         <Suspense fallback={<Loading />}>
-          <Header  />
-        <div className="app-div">
-          <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='items' element={<Items />} />
-          <Route path='restaurants' element={<Restaurants1 />} />
-          <Route path='category' element={<Category />} />
-          <Route path='orders' element={<Orders />} />
-          <Route path='selectedRestaurant' element={<SelectedRes />} />
-          <Route path='restaurantItems' element={<Orders />} />
-          <Route path='ordersHistory' element={<OrdersHistory />} />
-        </Routes>
-        </div>  
-        <Footer />
+          <Header />
+          <main>
+            <div className="app-div">
+
+              <Routes>
+                {routes.map(({ path, element, isProtected }, index) => (
+                  <Route
+                    key={index}
+                    path={path}
+                    element={
+                      isProtected ?
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                          {element}
+                        </ProtectedRoute>
+                        : (
+                          element
+                        )
+                    }
+                  />
+                ))}
+              </Routes>
+            </div>
+          </main>
+          <Footer />
         </Suspense>
-      </BrowserRouter>
+      </HeaderProvider>
+
+    </BrowserRouter>
 
   );
 }

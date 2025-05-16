@@ -1,6 +1,6 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import cartImage from '../../images/cart.jpg'
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux-slices/AuthSlice";
 import { Box, Button, Modal } from "@mui/material";
@@ -9,6 +9,7 @@ import LogoutForm from "../Forms/LogoutForm";
 
 import '../../styles/Header.css'
 import CheckoutModal from "../ReusableComponents/CheckoutModal";
+import { useHeaderContext } from "../../context/HeaderContext";
 function Header() {
 
   const navigate = useNavigate();
@@ -16,112 +17,77 @@ function Header() {
   const location = useLocation();
 
   const { isAuthenticated } = useSelector(state => state.auth)
-  const [models, setModels] = useState({ loginOpen: false, logoutOpen: false, checkOut: false })
   const { cart } = useSelector(state => state.cart)
 
-  const { loginOpen, logoutOpen, checkOut } = models
+  const {
+    loginOpen,
+    logoutOpen,
+    checkOut,
+    mobileMenuOpen,
+    handleMobileMenuClose,
+    handleMobileMenuOpen,
+    handleLogin,
+    handleLogOut,
+    handleCheckout,
+    handleClose,
+    handleLogOutClose
+  } = useHeaderContext();
 
-
-  const pathToIndex = {
+  const pathToIndex = useMemo(() => ({
     '/': 0,
     '/restaurants': 1,
     '/category': 2
-  };
+  }), [])
 
-  const routes = [
+  const routes = useMemo(() => ([
     { to: '/', label: 'Home', match: ['/', '/home'] },
     { to: '/restaurants', label: 'Restaurants', match: ['/restaurants', '/selectedRestaurant'] },
     { to: '/category', label: 'Category', match: ['/category', '/restaurantItems'] },
-    {to:'/ordersHistory', label:'Orders',match:['/ordersHistory']}
-  ];
+    { to: '/ordersHistory', label: 'Orders', match: ['/ordersHistory'] }
+  ]), [])
 
-
-  const handleLogin = () => {
-    setModels(pre => ({
-      ...pre,
-      loginOpen: true
-    }))
-  }
-
-  const handleClose = () => {
-    setModels((pre) => ({
-      ...pre,
-      loginOpen: false,
-      logoutOpen: false,
-      checkOut: false
-    }));
-  };
-
-  const handleLogOut = () => {
-    setModels(pre => ({
-      ...pre,
-      logoutOpen: true
-    }))
-  }
-
-  const handleCheckout = () => {
-    setModels(pre => ({
-      ...pre,
-      checkOut: true
-    }))
-  }
-
-  const handleLogOutClose = () => {
-    setModels(pre => ({
-      ...pre,
-      logoutOpen: true
-    }))
-    dispatch(logout({ isAuthenticated: false }))
-  }
-
-
-  //mobile functuon
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleMobileMenuOpen = () => setMobileMenuOpen(true);
-  const handleMobileMenuClose = () => setMobileMenuOpen(false);
   return (
     <div className="header-top">
       <div className="mobile-menu-icon" onClick={handleMobileMenuOpen}>
         &#9776;
       </div>
       <Modal open={mobileMenuOpen} onClose={handleMobileMenuClose}>
-  <Box
-    sx={{
-      height: '100vh',
-      width: '70vw',
-      maxWidth: '300px',
-      bgcolor: 'white',
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      zIndex: 1400,
-      p: 2,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 2,
-    }}
-  >
-    <button onClick={handleMobileMenuClose} style={{ alignSelf: 'flex-end' }}>
-      ❌
-    </button>
+        <Box
+          sx={{
+            height: '100vh',
+            width: '70vw',
+            maxWidth: '300px',
+            bgcolor: 'white',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            zIndex: 1400,
+            p: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 2,
+          }}
+        >
+          <button onClick={handleMobileMenuClose} style={{ alignSelf: 'flex-end' }}>
+            ❌
+          </button>
 
-    <Link to="/" onClick={handleMobileMenuClose} className="links">Home</Link>
-    <Link to="/restaurants" onClick={handleMobileMenuClose} className="links">Restaurants</Link>
-    <Link to="/category" onClick={handleMobileMenuClose} className="links">Category</Link>
-    <Link to='/ordersHistory' onClick={handleMobileMenuClose} className="links">My Orders</Link>
+          <Link to="/" onClick={handleMobileMenuClose} className="links">Home</Link>
+          <Link to="/restaurants" onClick={handleMobileMenuClose} className="links">Restaurants</Link>
+          <Link to="/category" onClick={handleMobileMenuClose} className="links">Category</Link>
+          <Link to='/ordersHistory' onClick={handleMobileMenuClose} className="links">My Orders</Link>
 
-    {isAuthenticated ? (
-      <button className="log-button" onClick={() => { handleLogOut(); handleMobileMenuClose(); }}>
-        Logout
-      </button>
-    ) : (
-      <button className="log-button" onClick={() => { handleLogin(); handleMobileMenuClose(); }}>
-        Login
-      </button>
-    )}
-  </Box>
-</Modal>
+          {isAuthenticated ? (
+            <button className="log-button" onClick={() => { handleLogOut(); handleMobileMenuClose(); }}>
+              Logout
+            </button>
+          ) : (
+            <button className="log-button" onClick={() => { handleLogin(); handleMobileMenuClose(); }}>
+              Login
+            </button>
+          )}
+        </Box>
+      </Modal>
 
       <div className="header-left">
         <div className="ap-name">

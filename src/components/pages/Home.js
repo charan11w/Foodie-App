@@ -7,14 +7,21 @@ import kunai from '../../images/icons/kunai.png'
 import dbox from '../../images/icons/empty.png'
 import { useNavigate } from "react-router-dom";
 import '../../styles/Home.css'
+import { useSelector } from "react-redux";
+import useHeader from "../../hooks/useHeader";
+import { useHeaderContext } from "../../context/HeaderContext";
+
 function Home(onLogin) {
   const navigate = useNavigate();
+  const {isAuthenticated} =useSelector(state => state.auth)
+
+  const {handleLogin,mo}=useHeaderContext()
   function goToRestaurant() {
     navigate('/restaurants')
   }
 
-  const goT0Home = () => {
-    navigate('/restaurants')
+  const goToHome = () => {
+    handleLogin()
   }
   return (
 
@@ -24,7 +31,7 @@ function Home(onLogin) {
         <div className="title-para">
           Your Ultimate Destination for Food, Grocery, E-commerce, Pharmacy,Parcel Delivery in Sagwara, Kuppam
         </div>
-        <div className="go-to-home" onClick={goT0Home}>Restaurant</div>
+        <div className="go-to-home" onClick={goToHome}>Restaurant</div>
         <div className="home-img">
         <img className="home-banner" src={banner} alt="home-banner" />
         </div>
