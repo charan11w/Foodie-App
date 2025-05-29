@@ -127,6 +127,13 @@
   border-radius: 8px;
 }
 
+@media (max-width:746px){
+  .cart-image{
+    width: 50px;
+    height: 50px;
+  }
+}
+
 .item-info h4 {
   margin: 0;
   font-size: 16px;

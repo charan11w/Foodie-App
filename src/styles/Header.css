@@ -49,6 +49,11 @@
   cursor: pointer;
 }
 
+.extra-btn{
+  border: 1px solid red;
+  background-color: black;
+}
+
 .log-button {
   background-color: white;
   color: #e23e57;
@@ -164,12 +169,4 @@
   color: black;
 }
 
-.log-button {
-  padding: 10px;
-  width: 100%;
-  font-size: 16px;
-  background-color: #f04e30;
-  color: white;
-  border: none;
-  border-radius: 4px;
-}
+

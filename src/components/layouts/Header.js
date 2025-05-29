@@ -78,11 +78,11 @@ function Header() {
           <Link to='/ordersHistory' onClick={handleMobileMenuClose} className="links">My Orders</Link>
 
           {isAuthenticated ? (
-            <button className="log-button" onClick={() => { handleLogOut(); handleMobileMenuClose(); }}>
+            <button className="log-button extra-btn" onClick={() => { handleLogOut(); handleMobileMenuClose(); }}>
               Logout
             </button>
           ) : (
-            <button className="log-button" onClick={() => { handleLogin(); handleMobileMenuClose(); }}>
+            <button className="log-button extra-btn" onClick={() => { handleLogin(); handleMobileMenuClose(); }}>
               Login
             </button>
           )}
@@ -146,16 +146,15 @@ function Header() {
             <LogoutForm onClose={handleLogOutClose} closeAll={handleClose} />
           </Box>
         </Modal>
-        <div className="cart">
-          <img src={cartImage} className="cart-image" onClick={handleCheckout}></img>
-          <div className="cartLength" onClick={handleCheckout}>{cart.length}</div>
-          <CheckoutModal open={checkOut} onClose={handleClose} />
-        </div>
         <div className="log-btn">
           {
             isAuthenticated
               ?
-              <button className="log-button" onClick={handleLogOut}>Logout</button>
+              <div className="cart">
+                <img src={cartImage} className="cart-image" onClick={handleCheckout}></img>
+                <div className="cartLength" onClick={handleCheckout}>{cart.length}</div>
+                <CheckoutModal open={checkOut} onClose={handleClose} />
+              </div>
               :
               <button className="log-button" onClick={handleLogin}>Login</button>
 
